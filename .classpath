@@ -7,5 +7,6 @@
 	</classpathentry>
 	<classpathentry kind="src" path="triangulo"/>
 	<classpathentry kind="src" path="produto_estoque"/>
+	<classpathentry kind="src" path="retangulo"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
