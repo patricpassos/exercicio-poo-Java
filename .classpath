@@ -10,5 +10,6 @@
 	<classpathentry kind="src" path="retangulo"/>
 	<classpathentry kind="src" path="funcionario_imposto"/>
 	<classpathentry kind="src" path="alunos"/>
+	<classpathentry kind="src" path="raio"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
