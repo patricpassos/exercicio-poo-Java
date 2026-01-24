@@ -9,5 +9,6 @@
 	<classpathentry kind="src" path="produto_estoque"/>
 	<classpathentry kind="src" path="retangulo"/>
 	<classpathentry kind="src" path="funcionario_imposto"/>
+	<classpathentry kind="src" path="alunos"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
