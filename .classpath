@@ -11,5 +11,6 @@
 	<classpathentry kind="src" path="funcionario_imposto"/>
 	<classpathentry kind="src" path="alunos"/>
 	<classpathentry kind="src" path="raio"/>
+	<classpathentry kind="src" path="cambio"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
