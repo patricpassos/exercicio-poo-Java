@@ -11,7 +11,7 @@ public class Product {
 		return price * quantity;
 	}
 	
-	//(this.nome do atributo) é uma palavra reservada para se referi ao atributo em vez do parametro
+	//(this.nome do atributo) é uma palavra reservada para se referenciar ao atributo em vez do parametro
 	public void addProducts(int quantity) {
 		this.quantity += quantity; 
 	}
