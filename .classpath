@@ -15,5 +15,6 @@
 	<classpathentry kind="src" path="terreno"/>
 	<classpathentry kind="src" path="idades"/>
 	<classpathentry kind="src" path="troco"/>
+	<classpathentry kind="src" path="pagamento"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
