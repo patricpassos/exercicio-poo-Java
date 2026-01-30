@@ -17,5 +17,7 @@
 	<classpathentry kind="src" path="troco"/>
 	<classpathentry kind="src" path="pagamento"/>
 	<classpathentry kind="src" path="conta_bancaria"/>
+	<classpathentry kind="src" path="pessoa_w3resource"/>
+	<classpathentry kind="src" path="conta_bancaria_w3resource"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
