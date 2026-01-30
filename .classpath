@@ -16,5 +16,6 @@
 	<classpathentry kind="src" path="idades"/>
 	<classpathentry kind="src" path="troco"/>
 	<classpathentry kind="src" path="pagamento"/>
+	<classpathentry kind="src" path="conta_bancaria"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
