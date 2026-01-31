@@ -4,12 +4,10 @@ public class Pessoa {
 
 	private String nome;
 	private int idade;
-	private String pais;
 
-	public Pessoa(String nome, int idade, String pais) {
-		this.nome = nome;
-		this.idade = idade;
-		this.pais = pais;
+	public Pessoa(String nome, int idade) {
+		setNome(nome);
+		setIdade(idade);
 	}
 
 	public String getNome() {
@@ -17,7 +15,7 @@ public class Pessoa {
 	}
 
 	public void setNome(String nome) {
-		this.nome = nome;
+		this.nome = nome.toUpperCase();
 	}
 
 	public int getIdade() {
@@ -25,29 +23,24 @@ public class Pessoa {
 	}
 
 	public void setIdade(int idade) {
-		this.idade = idade;
+		if (idade >= 0) {
+			this.idade = idade;
+		} else {
+			this.idade = 0;
+		}
 	}
 
-	public String getPais() {
-		return pais;
-	}
-
-	public void setPais(String pais) {
-		this.pais = pais;
-	}
-	
-	public void faixaEtaria (int idade) {
-		if(idade >= 65) {
-			System.out.println("Faixa etária: Idoso");
-		}
-		else if(idade >= 18) {
-			System.out.println("Faixa etária: Adulto");
-		}
-		else if (idade >= 13) {
-			System.out.println("Faixa etária: Adolescente");
-		}
-		else {
-			System.out.println("Faixa etária: Infantil");
+	public String faixaEtaria() {
+		if (idade >= 65) {
+			return "Idoso";
+		} else if (idade >= 18) {
+			return "Adulto";
+		} else if (idade >= 13) {
+			return "Adolescente";
+		} else if (idade > 0) {
+			return "Infantil";
+		} else {
+			return "--";
 		}
 	}
 

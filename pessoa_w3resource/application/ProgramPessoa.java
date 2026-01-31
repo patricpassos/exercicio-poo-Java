@@ -12,18 +12,15 @@ public class ProgramPessoa {
 
 		System.out.print("Digite o nome da pessoa: ");
 		String nome = sc.nextLine();
-		System.out.print("Digite a idade: ");
+		System.out.print("Digite a idade da pessoa: ");
 		int idade = sc.nextInt();
-		System.out.print("Digite o país: ");
-		sc.nextLine();
-		String pais = sc.nextLine();
+		
 
-		Pessoa pessoa = new Pessoa(nome, idade, pais);
+		Pessoa pessoa = new Pessoa(nome, idade);
 
 		System.out.println("Nome: " + pessoa.getNome());
 		System.out.println("Idade: " + pessoa.getIdade());
-		System.out.println("País: " + pessoa.getPais());
-		pessoa.faixaEtaria(idade);
+		System.out.println("Faixa etaria: " + pessoa.faixaEtaria());
 
 		sc.close();
 
