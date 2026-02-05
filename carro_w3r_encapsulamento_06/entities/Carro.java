@@ -10,13 +10,11 @@ public class Carro {
 	private int ano;
 	private double quilometragem;
 
-	
 	public Carro(String empresa, String modelo, int ano, double quilometragem) {
 		this.empresa = empresa;
 		this.modelo = modelo;
 		setAno(ano);
 		setQuilometragem(quilometragem);
-		atualizacaoQuilometros(quilometragem);
 	}
 
 	public String getEmpresa() {
@@ -52,37 +50,45 @@ public class Carro {
 	}
 
 	public void setQuilometragem(double quilometragem) {
-		if(quilometragem < 0.0) {
-			System.out.println("----");
-		}else {
+		if (quilometragem < 0.0) {
+			System.out.println("Não pode quilometragem NEGATIVA");
+		} else {
 			this.quilometragem = quilometragem;
 		}
 	}
-	
+
 	public void atualizacaoQuilometros(double quilometrosRodados) {
 		quilometragem += quilometrosRodados;
 	}
-	
+
 	public double eficiencia(double quilometrosRodados, double litros) {
-		return quilometrosRodados / litros;
+		if (litros <= 0.0) {
+			return 0.0;
+		} else {
+			return quilometrosRodados / litros;
+		}
 	}
-	
+
 	public double custoPorKm(double quilometrosRodados, double litros) {
-		double eficiencia = eficiencia(quilometrosRodados,litros);
-		return PRECO_MEDIO_GASOLINA / eficiencia;
+		double eficiencia = eficiencia(quilometrosRodados, litros);
+		if(eficiencia == 0) {
+			return 0.0;
+		}else {
+			return PRECO_MEDIO_GASOLINA / eficiencia;
+		}	
 	}
-	
+
 	public String status(double quilometrosRodados, double litros) {
-		return
-				"\n**STATUS VEICULAR**"
-				+"\nFabricante: "
-				+ empresa
-				+ "\nModelo: "
-				+ modelo
-				+ "\nAno: "
+		return 
+				"\n**STATUS VEICULAR**" 
+				+ "\nFabricante: " 
+				+ empresa 
+				+ "\nModelo: " 
+				+ modelo 
+				+ "\nAno: " 
 				+ ano
-				+ "\nEficiência: " + String.format("%.2f", eficiencia(quilometrosRodados,litros)) + " km/l"
-				+ "\nCusto por km: " + String.format("%.2f", custoPorKm(quilometrosRodados,litros)) + " por km"
-				+ "\nQuilometragem total: " + String.format("%.2f", quilometragem);
+				+ "\nEficiência: " + String.format("%.2f", eficiencia(quilometrosRodados, litros)) + " km/l"
+				+ "\nCusto por km: " + String.format("%.2f", custoPorKm(quilometrosRodados, litros)) + " por km"
+				+ "\nQuilometragem total: " + String.format("%.2f", quilometragem) + "km";
 	}
 }

@@ -8,10 +8,10 @@ import entities.Carro;
 public class ProgramCarro {
 
 	public static void main(String[] args) {
-		
+
 		Locale.setDefault(Locale.US);
-		Scanner sc = new Scanner (System.in);
-		
+		Scanner sc = new Scanner(System.in);
+
 		System.out.print("Nome da empresa: ");
 		String nome = sc.nextLine();
 		System.out.print("Nome do modelo: ");
@@ -20,20 +20,17 @@ public class ProgramCarro {
 		int ano = sc.nextInt();
 		System.out.print("quilometragem atual: ");
 		double quilometragem = sc.nextDouble();
-	
+
 		Carro carro = new Carro(nome, modelo, ano, quilometragem);
-		
-		System.out.println("\nEficiência veicular");
+
 		System.out.print("Quilometros Rodados: ");
 		double quilometrosRodados = sc.nextDouble();
 		System.out.print("Litros abastecidos: ");
 		double litros = sc.nextDouble();
-		
+		carro.atualizacaoQuilometros(quilometrosRodados);
+
 		System.out.println(carro.status(quilometrosRodados, litros));
-	
-		
-		
-		
+
 		sc.close();
 
 	}
