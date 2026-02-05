@@ -26,7 +26,7 @@ public class Circulo {
 	}
 
 	public void raio(Circulo other) {
-		if (this.raio == other.raio) {
+		if (raio == other.raio) {
 			System.out.println("O primeiro raio CABE dentro do segundo");
 		} else {
 			System.out.println("O primeiro circulo NÃO cabe dentro do segundo");

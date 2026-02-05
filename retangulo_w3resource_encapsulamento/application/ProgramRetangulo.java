@@ -21,9 +21,9 @@ public class ProgramRetangulo {
 
 		System.out.println("Comprimento: " + retangulo.getComprimento());
 		System.out.println("Largura: " + retangulo.getLargura());
+		System.out.printf("Diagonal: %.2f", retangulo.diagonal());
 		System.out.println("Tipo geometrico: " + retangulo.quadrado());
-		System.out.printf("Tipo geometrico: %.2f", retangulo.diagonal());
-
+		
 		sc.close();
 
 	}
