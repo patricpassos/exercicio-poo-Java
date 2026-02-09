@@ -23,5 +23,8 @@
 	<classpathentry kind="src" path="retangulo"/>
 	<classpathentry kind="src" path="pessoa_w3r_encapsulamento_01"/>
 	<classpathentry kind="src" path="alunos"/>
+	<classpathentry kind="src" path="cachorro_w3r_construtor_02"/>
+	<classpathentry kind="src" path="livros_w3r_construtor_03"/>
+	<classpathentry kind="src" path="aluno_w3r_construtor_04"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
