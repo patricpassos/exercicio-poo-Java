@@ -88,6 +88,5 @@ public class Livro {
 		}
 		return (double) estrelas / resenhas;
 	}
-	
 
 }
