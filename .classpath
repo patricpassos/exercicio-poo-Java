@@ -30,5 +30,8 @@
 	<classpathentry kind="src" path="media_produtos_vetores"/>
 	<classpathentry kind="src" path="negativos_vetores"/>
 	<classpathentry kind="src" path="soma_vetor"/>
+	<classpathentry kind="src" path="alturas_vetores"/>
+	<classpathentry kind="src" path="numeros_pares_vetor"/>
+	<classpathentry kind="src" path="maior_posicao"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

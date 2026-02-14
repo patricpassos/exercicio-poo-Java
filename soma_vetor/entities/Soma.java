@@ -17,8 +17,8 @@ public class Soma {
 	}
 
 	public static void valores(Soma[] vetor) {
-		for (int i = 0; i < vetor.length; i++) {
-			System.out.print(vetor[i].getNumero() + " ");
+		for (Soma n : vetor) {
+			System.out.print(n.getNumero() + " ");
 		}
 	}
 
