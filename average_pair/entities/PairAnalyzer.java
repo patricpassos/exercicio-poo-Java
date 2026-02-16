@@ -1,10 +1,10 @@
 package entities;
 
-public class Pair {
+public class PairAnalyzer {
 
 	private int number;
 
-	public Pair(int number) {
+	public PairAnalyzer(int number) {
 		this.number = number;
 	}
 
@@ -16,10 +16,10 @@ public class Pair {
 		this.number = number;
 	}
 
-	public static void averegePair(Pair[] vector) {
+	public static void averagePair(PairAnalyzer[] vector) {
 		int sum = 0;
 		int cont = 0;
-		for (Pair s : vector) {
+		for (PairAnalyzer s : vector) {
 			if (s.getNumber() % 2 == 0) {
 				sum += s.getNumber();
 				cont++;
@@ -29,8 +29,8 @@ public class Pair {
 		if (sum == 0) {
 			System.out.println("NO NUMBER IS EVEN");
 		} else {
-			double averege = sum / cont;
-			System.out.printf("AVERAGE OF THE PAIRS = %.1f", averege);
+			double average = (double) sum / cont;
+			System.out.printf("AVERAGE OF THE PAIRS = %.1f", average);
 		}
 	}
 

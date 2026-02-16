@@ -3,7 +3,7 @@ package application;
 import java.util.Locale;
 import java.util.Scanner;
 
-import entities.Pair;
+import entities.PairAnalyzer;
 
 public class AveragePair {
 
@@ -15,15 +15,15 @@ public class AveragePair {
 		System.out.print("How many elements will the vector have? ");
 		int n = sc.nextInt();
 		
-		Pair[] vector = new Pair[n];
+		PairAnalyzer[] vector = new PairAnalyzer[n];
 		
 		for(int i = 0; i < vector.length; i++) {
 			System.out.print("Enter a number: ");
 			int number = sc.nextInt();
-			vector[i] = new Pair(number);
+			vector[i] = new PairAnalyzer(number);
 		}
 		
-		Pair.averegePair(vector);
+		PairAnalyzer.averagePair(vector);
 		
 		sc.close();
 
