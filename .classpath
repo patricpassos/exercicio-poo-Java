@@ -35,6 +35,7 @@
 	<classpathentry kind="src" path="maior_posicao_vetores"/>
 	<classpathentry kind="src" path="soma_vetores"/>
 	<classpathentry kind="src" path="abaixo_media_vetores"/>
-	<classpathentry kind="src" path="average_pair"/>
+	<classpathentry kind="src" path="average_pair_vetores"/>
+	<classpathentry kind="src" path="mais_velho_vetores"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
