@@ -37,6 +37,7 @@
 	<classpathentry kind="src" path="abaixo_media_vetores"/>
 	<classpathentry kind="src" path="average_pair_vetores"/>
 	<classpathentry kind="src" path="mais_velho_vetores"/>
-	<classpathentry kind="src" path="aprovados"/>
+	<classpathentry kind="src" path="aprovados_vetores"/>
+	<classpathentry kind="src" path="dados_pessoas_vetores"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
