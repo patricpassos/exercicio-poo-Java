@@ -39,5 +39,6 @@
 	<classpathentry kind="src" path="mais_velho_vetores"/>
 	<classpathentry kind="src" path="aprovados_vetores"/>
 	<classpathentry kind="src" path="dados_pessoas_vetores"/>
+	<classpathentry kind="src" path="comerciante_vetores"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
