@@ -8,11 +8,13 @@ public class People {
 	private String name;
 	private Integer age;
 	private Double height;
+	private Character gender;
 	
-	public People(String name, Integer age, Double height) {
+	public People(String name, Integer age, Double height, Character gender) {
 		this.name = name;
 		setAge(age);
 		this.height = height;
+		this.gender = gender;
 	}
 
 	public String getName() {
@@ -29,9 +31,10 @@ public class People {
 
 	public void setAge(Integer age) {
 		if(age < 0) {
-			System.out.println("**--ERROR AGE--**");
+			System.out.println("**--ERROR: AGE CANNOT BE NEGATIVE--**");
+		} else {
+			this.age = age;
 		}
-		this.age = age;
 	}
 
 	public Double getHeight() {
@@ -42,6 +45,22 @@ public class People {
 		this.height = height;
 	}
 	
+	public Character getGender() {
+		return gender;
+	}
+	
+	public void setGender(Character gender) {
+		this.gender = gender;
+	}
+	
+	public boolean isFemale() {
+		return gender == 'F';
+	}
+	
+	public boolean isMale() {
+		return gender == 'M';
+	}
+	
 	public boolean isAgeUnder16() {
 		return age < 16;
 	}
@@ -50,9 +69,8 @@ public class People {
 		return name.toUpperCase().charAt(0) == Character.toUpperCase(letter);
 	}
 	
-	public static void retorno(List<People> list, char letter) {
+	public static void returnFilter(List<People> list, char letter) {
 		List<People> resultFilter = list.stream().filter(x -> x.isFilter(letter)).collect(Collectors.toList());
-		
 		if(resultFilter.isEmpty()) {
 			System.out.println("***No one found with that letter***");
 		} else {
@@ -60,6 +78,66 @@ public class People {
 				System.out.println(f.getName());
 			}
 		}
+	}
+	
+	public static People lowestHeight(List<People> list) {
+		if(list.isEmpty()) {
+			return null;
+		}
+		
+		People smaller = list.get(0);
+		for(int i = 1; i < list.size(); i++) {
+			if(list.get(i).getHeight() < smaller.getHeight()) {
+				smaller = list.get(i);
+			}
+		}
+		return smaller;
+	}
+	
+	public static People greatestHeight(List<People> list) {
+		if(list.isEmpty()) {
+			return null;
+		}
+		
+		People bigger = list.get(0);
+		for(int i = 1; i < list.size(); i++) {
+			if(list.get(i).getHeight() > bigger.getHeight()) {
+				bigger = list.get(i);
+			}
+		}
+		return bigger;
+	}
+	
+	public static People olderAge(List<People> list) {
+		People older = list.get(0);
+		for(int i = 1; i < list.size(); i++) {
+			if(list.get(i).getAge() > older.getAge()) {
+				older = list.get(i);
+			}
+		}
+		return older;
+	}
+	
+	public static int numberMales(List<People> list) {
+		int cont = 0;
+		for(People m : list) {
+			if(m.isMale()) {
+				cont++;
+			}
+		}
+		return cont;
+	}
+	
+	public static double averageFemale(List<People> list) {
+		double sum = 0.0;
+		int cont = 0;
+		for(People f : list) {
+			if(f.isFemale()) {
+				sum += f.getHeight();
+				cont++;
+			}
+		}
+		return sum == 0.0 ? 0.0 : (double) sum / cont;
 	}
 	
 	public static double averageHeight(List<People> list) {
@@ -86,6 +164,6 @@ public class People {
 				System.out.println(n.getName());
 			}
 		}
-	}
+	}	
 
 }

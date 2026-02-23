@@ -20,7 +20,7 @@ public class ProgramRegister {
 		int n = sc.nextInt();
 
 		for (int i = 0; i < n; i++) {
-			System.out.printf("Data for %d° people:\n", i + 1);
+			System.out.printf("\nData for %d° people:\n", i + 1);
 			System.out.print("Name: ");
 			sc.nextLine();
 			String name = sc.nextLine();
@@ -28,15 +28,28 @@ public class ProgramRegister {
 			Integer age = sc.nextInt();
 			System.out.print("Height: ");
 			Double height = sc.nextDouble();
-			list.add(new People(name, age, height));
+			System.out.print("Gender: ");
+			Character gender = sc.next().toUpperCase().charAt(0);
+			list.add(new People(name, age, height, gender));
 		}
 
 		double averageHeight = People.averageHeight(list);
 		double under16 = People.under16(list);
-
-		System.out.println("\n*** REPORT ***");
-		System.out.printf("Height average: %.2f\n", averageHeight);
-		System.out.printf("People under the age of 16: %.1f%%\n", under16);
+		People olderPerson = People.olderAge(list);
+		People greatestHeight = People.greatestHeight(list);
+		People lowestHeight = People.lowestHeight(list);
+		double averageFemale = People.averageFemale(list);
+		int numberMales = People.numberMales(list);
+		
+		
+		System.out.print("\n========== REPORT ==========");
+		System.out.printf("\nHeight average: %.2f", averageHeight);
+		System.out.printf("\nAverage height of women: %.2f", averageFemale);
+		System.out.print("\nNumber of men: " + numberMales);
+		System.out.printf("\nGreatest height: %.2f", greatestHeight.getHeight());
+		System.out.printf("\nLowest height: %.2f", lowestHeight.getHeight());
+		System.out.printf("\nOlder person: " + olderPerson.getName());
+		System.out.printf("\nPeople under the age of 16: %.1f%%\n", under16);
 		People.nameUnder16(list);
 
 		char resp;
@@ -47,7 +60,7 @@ public class ProgramRegister {
 				System.out.print("Type the letter: ");
 				Character letter = sc.next().toUpperCase().charAt(0);
 				System.out.println("People found:");
-				People.retorno(list, letter);
+				People.returnFilter(list, letter);
 			} else {
 				break;
 			}
