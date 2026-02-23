@@ -1,6 +1,7 @@
 package entities;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class People {
 	
@@ -45,12 +46,28 @@ public class People {
 		return age < 16;
 	}
 	
+	public boolean isFilter(char letter) {
+		return name.toUpperCase().charAt(0) == Character.toUpperCase(letter);
+	}
+	
+	public static void retorno(List<People> list, char letter) {
+		List<People> resultFilter = list.stream().filter(x -> x.isFilter(letter)).collect(Collectors.toList());
+		
+		if(resultFilter.isEmpty()) {
+			System.out.println("***No one found with that letter***");
+		} else {
+			for(People f : resultFilter) {
+				System.out.println(f.getName());
+			}
+		}
+	}
+	
 	public static double averageHeight(List<People> list) {
 		double sum = 0.0;
 		for(People h : list) {
 			sum += h.getHeight();
 		}
-		return sum / list.size();
+		return sum == 0.0 ? 0.0 : sum / list.size();
 	}
 	
 	public static double under16(List<People> list) {
@@ -60,13 +77,13 @@ public class People {
 				cont++;
 			}
 		}
-		return cont / list.size() * 100;
+		return cont == 0.0 ? 0.0 : cont / list.size() * 100;
 	}
 	
 	public static void nameUnder16(List<People> list) {
 		for(People n : list) {
 			if(n.isAgeUnder16()) {
-				System.out.print(n.getName() + " ");
+				System.out.println(n.getName());
 			}
 		}
 	}
