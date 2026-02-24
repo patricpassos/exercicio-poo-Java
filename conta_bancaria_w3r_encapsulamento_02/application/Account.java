@@ -34,12 +34,12 @@ public class Account {
 		System.out.print("Deposit: ");
 		double initialDeposit = sc.nextDouble();
 		account.deposit(initialDeposit);
-		System.out.println("Salto conta: " + account.getBalance());
+		System.out.println("Account balance: " + account.getBalance());
 
-		System.out.print("Saque: ");
+		System.out.print("Withdrawal: ");
 		double saque = sc.nextDouble();
 		account.sacar(saque);
-		System.out.println("Saldo: " + account.getBalance());
+		System.out.println("Balance: " + account.getBalance());
 
 		sc.close();
 

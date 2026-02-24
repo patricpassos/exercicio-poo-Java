@@ -88,7 +88,7 @@ public class BankAccount {
 		} else if (typeAccount.equals("AI") && saque > 100.0) {
 			balance -= saque + 100.0;
 		} else {
-			System.out.println("Impossivel");
+			System.out.println("Impossible");
 		}
 	}
 }

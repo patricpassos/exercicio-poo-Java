@@ -32,8 +32,8 @@ public class Numero {
 	}
 	
 	public static void listaNumero(List<Numero> list) {
-		for(Numero lista : list) {
-			System.out.print(lista.getElemento() + " ");
+		for(Numero l : list) {
+			System.out.print(l.getElemento() + " ");
 		}
 	}
 
@@ -73,6 +73,18 @@ public class Numero {
 		return (contPositivo == 0 ? 0.0 : (double) somaPositivo(list) / contPositivo);
 	}
 	
+	public static double mediaPositivosPares(List<Numero> list) {
+		int somaPositivoPares = 0;
+		int contPositivoPares = 0;
+		for(Numero cpp : list) {
+			if(cpp.getElemento() > 0 && cpp.isPar()) {
+				somaPositivoPares += cpp.getElemento();
+				contPositivoPares++;
+			}
+		}
+		return (contPositivoPares == 0 ? 0 : (double) somaPositivoPares / contPositivoPares);
+	}
+	
 	public static int contagemPares(List<Numero> list) {
 		int contPares = 0;
 		for(Numero cp : list) {
@@ -82,4 +94,29 @@ public class Numero {
 		}
 		return contPares;
 	}
+	
+	public static Numero maiorValor(List<Numero> list) { //Técnica dos ponteiros
+		if (list.isEmpty()) {
+			return null;
+		}
+		
+		Numero maior = list.get(0);
+		for(int i = 1; i < list.size(); i++) {
+			if(list.get(i).getElemento() > maior.getElemento()) {
+				maior = list.get(i);
+			}
+		}
+		return maior;
+	}
+	
+	public static int posicaoMaiorValor(List<Numero> list) {
+		int posicao = 0;
+		for(int i = 0; i < list.size(); i++) {
+			if(list.get(i).getElemento() > list.get(posicao).getElemento()) {
+				posicao = i;
+			}
+		}
+		return posicao == 0 ? 0 : posicao;
+	}
+	
 }

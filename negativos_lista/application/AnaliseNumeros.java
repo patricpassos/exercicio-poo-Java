@@ -22,12 +22,15 @@ public class AnaliseNumeros {
 		for(int i = 0; i < n; i++) {
 			System.out.print("Digite um número: ");
 			Integer elemento = sc.nextInt();
-			list.add(new Numero(elemento));
+			list.add(new Numero(elemento)); //Instanciação dos dados
 		}
 		
 		int somaNumerosPositivo = Numero.somaPositivo(list);
 		double mediaNumeroPositivo = Numero.mediaPositivos(list);
-		double contagemNumeroPar = Numero.contagemPares(list);
+		int contagemNumeroPar = Numero.contagemPares(list);
+		Numero maiorValor = Numero.maiorValor(list);
+		int posicaoMaiorValor = Numero.posicaoMaiorValor(list);
+		double mediaPositivoPares = Numero.mediaPositivosPares(list);
 		
 		
 		System.out.println("\nLISTA GERAL DOS NUMEROS");
@@ -42,7 +45,10 @@ public class AnaliseNumeros {
 		System.out.print("\nRESULTADOS");
 		System.out.print("\nSOMA NÚMEROS POSITIVOS: " + somaNumerosPositivo);
 		System.out.printf("\nMÉDIA NÚMEROS POSITIVOS: %.2f", mediaNumeroPositivo);
-		System.out.printf("\nCONTAGEM DE PARES: %.0f" + contagemNumeroPar);
+		System.out.printf(mediaPositivoPares == 0 ? "NENHUM NÚMERO PAR" : "\nMÉDIA NÚMEROS PARES POSITIVOS: %.2f", mediaPositivoPares);
+		System.out.printf("\nCONTAGEM DE PARES: %d", contagemNumeroPar);
+		System.out.print("\nMAIOR VALOR: " + maiorValor.getElemento());
+		System.out.print("\nPOSIÇÃO DO MAIOR VALOR: " + posicaoMaiorValor);
 		
 		sc.close();
 
