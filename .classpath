@@ -42,5 +42,6 @@
 	<classpathentry kind="src" path="comerciante_vetores"/>
 	<classpathentry kind="src" path="negativos_lista"/>
 	<classpathentry kind="src" path="altura_lista"/>
+	<classpathentry kind="src" path="salary_increase_list"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
