@@ -1,0 +1,38 @@
+package application;
+
+import java.util.Scanner;
+
+import entities.Matriz;
+
+
+public class ProgramDiagonalMatrix {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("What is the order of the matrix? ");
+		int n = sc.nextInt();
+		
+		Matriz matriz = new Matriz(n);
+		
+		System.out.println("Digite os valores da matriz:");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+            	System.out.printf("Elemento [%d %d]: ", i, j);
+            	int elemento = sc.nextInt();
+                matriz.setValor(i, j, elemento); // ponte com as referencias de coluna e linha para inputs da matriz
+            }
+        }
+		
+        System.out.println("\nDiagonal principal:");
+        int[] diagonal = matriz.getDiagonalPrincipal(); // ponteiro que aponta para o a "caixa" vetor do metodo
+        for (int valor : diagonal) {
+            System.out.print(valor + " ");
+        }
+        
+		sc.close();
+
+	}
+
+}

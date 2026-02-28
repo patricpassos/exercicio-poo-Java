@@ -15,7 +15,6 @@ public class ProgramSalary {
 		Scanner sc = new Scanner(System.in);
 		
 		List<Employee> list = new ArrayList<>();
-		 
 		
 		System.out.print("How many employees will be registered? ");
 		int n = sc.nextInt();

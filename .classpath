@@ -43,5 +43,6 @@
 	<classpathentry kind="src" path="negativos_lista"/>
 	<classpathentry kind="src" path="altura_lista"/>
 	<classpathentry kind="src" path="salary_increase_list"/>
+	<classpathentry kind="src" path="diagonal_principal_matrizes"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
