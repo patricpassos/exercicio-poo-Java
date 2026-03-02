@@ -10,7 +10,7 @@ public class ProgramDiagonalMatrix {
 
 		Scanner sc = new Scanner(System.in);
 
-		System.out.print("What is the order of the matrix? ");
+		System.out.print("Qual a ordem da matriz? ");
 		int n = sc.nextInt();
 
 		Matriz matriz = new Matriz(n); // cria um ponteiro na stack que aponta que aponta para o heap (n)

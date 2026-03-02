@@ -8,10 +8,8 @@ public class Matriz {
 	public Matriz(int n) {
 		this.n = n;
 		this.dados = new int[n][n];
-		// realiza uma alocação dinamica de memoria, criando uma estrutura da matriz no
-		// heap
-		// deixa de ser null a passa a guardar o endereço ed memoria. onde os dados
-		// serão armazenados
+		// realiza uma alocação dinamica de memoria, criando uma estrutura da matriz no heap
+		// deixa de ser null a passa a guardar o endereço ed memoria. onde os dados serão armazenados
 	}
 
 	public int getN() {
@@ -27,8 +25,7 @@ public class Matriz {
 	}
 
 	public int[] getDiagonalPrincipal() {
-		// intanciado de um novo objeto vetor no heap temporario "RECIPIENTE" com o
-		// objetivo de de guarda-los
+		// intanciado de um novo objeto vetor no heap temporario "RECIPIENTE" com o objetivo de de guarda-los
 		int[] diagonal = new int[n];
 		for (int i = 0; i < n; i++) {
 			diagonal[i] = dados[i][i]; // diagonal recebe os valores da diagonal principal do objeto
@@ -38,8 +35,8 @@ public class Matriz {
 
 	public int contagemNegativos() {
 		int cont = 0;
-		for (int i = 0; i < n; i++) {
-			for (int j = 0; j < n; j++) {
+		for (int i = 0; i < dados.length; i++) {
+			for (int j = 0; j < dados[i].length; j++) {
 				if (dados[i][j] < 0) {
 					cont++;
 				}
