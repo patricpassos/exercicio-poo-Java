@@ -9,7 +9,7 @@ public class Matriz {
 		this.n = n;
 		this.dados = new int[n][n];
 		// realiza uma alocação dinamica de memoria, criando uma estrutura da matriz no heap
-		// deixa de ser null a passa a guardar o endereço ed memoria. onde os dados serão armazenados
+		// deixa de ser null a passa a guardar o endereço de memoria. onde os dados serão armazenados
 	}
 
 	public int getN() {
