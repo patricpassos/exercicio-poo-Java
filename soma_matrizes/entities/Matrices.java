@@ -6,14 +6,16 @@ public class Matrices {
 	private int column;
 	private int[][] matA;
 	private int[][] matB;
-	private int[][] matC;
+	private int[][] matSum;
+	private int[][] matSubtraction;
 
 	public Matrices(int row, int column) {
 		this.row = row;
 		this.column = column;
 		this.matA = new int[row][column];
 		this.matB = new int[row][column];
-		this.matC = new int[row][column];
+		this.matSum = new int[row][column];
+		this.matSubtraction = new int[row][column];
 	}
 
 	public int getRow() {
@@ -35,13 +37,25 @@ public class Matrices {
 	public void sum() {
 		for (int i = 0; i < row; i++) {
 			for (int j = 0; j < column; j++) {
-				matC[i][j] = matA[i][j] + matB[i][j];
+				matSum[i][j] = matA[i][j] + matB[i][j];
+			}
+		}
+	}
+	
+	public void subtraction() {
+		for(int i = 0; i < row; i++) {
+			for(int j = 0; j < column; j++) {
+				matSubtraction[i][j] = matA[i][j] - matB[i][j];
 			}
 		}
 	}
 
-	public int[][] sumMatC() {
-		return matC;
+	public int[][] sumMatrix() {
+		return matSum;
+	}
+	
+	public int[][] subtractionMatrix() {
+		return matSubtraction;
 	}
 
 }
