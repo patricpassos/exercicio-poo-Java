@@ -10,10 +10,18 @@ public class AboveDiagonal {
 		
 		Scanner sc = new Scanner(System.in);
 		
-		System.out.print("What is the order of the matrix? ");
-		int order = sc.nextInt();
+		int order = 0;
+		Above matrix = null;
 		
-		Above matrix = new Above(order);
+		while(matrix == null) {
+			System.out.print("What is the order of the matrix? ");
+			order = sc.nextInt();
+			if(order <= 0) {
+				System.out.println("ERROR: There is no order for negative or zero matrices.\n");
+			} else {
+				matrix = new Above(order);
+			}
+		}
 		
 		for(int i = 0; i < matrix.getOrder(); i++) {
 			for(int j = 0; j < matrix.getOrder(); j++) {
