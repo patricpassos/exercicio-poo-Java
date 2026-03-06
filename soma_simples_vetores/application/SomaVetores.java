@@ -13,23 +13,25 @@ public class SomaVetores {
 		Scanner sc = new Scanner(System.in);
 		
 		System.out.print("Quantos números você vai digitar? ");
-		int n = sc.nextInt();
+		int tamanhoVetor = sc.nextInt();
 		
-		Soma[] vetor = new Soma[n];
+		Soma vetor = new Soma(tamanhoVetor);
 		
-		for(int i = 0; i < vetor.length; i++) {
+		for(int i = 0; i < vetor.tamanhoVetor(); i++) {
 			System.out.print("Digite um número: ");
-			double numero = sc.nextDouble();
-			vetor[i] = new Soma(numero);
+			double elemento = sc.nextDouble();
+			vetor.setElemento(i, elemento);
 		}
 		
-		double soma = Soma.somaVetores(vetor);
-		double media = Soma.mediaVetores(vetor);
+		double somaVetores = vetor.soma();
+		double mediaVetores = vetor.media();
 		
-		System.out.printf("VALORES = ");
-		Soma.valores(vetor);
-		System.out.printf("\nSoma = %.2f\n", soma);
-		System.out.printf("Média = %.2f", media);
+		System.out.print("\nVALORES: ");
+		for(double v : vetor.getVet()) {
+			System.out.print(v + " ");
+		}
+		System.out.printf("\nSOMA = %.2f", somaVetores);
+		System.out.printf("\nMÉDIA = %.2f", mediaVetores);
 		
 		sc.close();
 

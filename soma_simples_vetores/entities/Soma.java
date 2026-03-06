@@ -2,36 +2,35 @@ package entities;
 
 public class Soma {
 
-	private double numero;
+	private double[] vet;
 
-	public Soma(double numero) {
-		this.numero = numero;
+	public Soma(int tamnhoVetor) {
+		this.vet = new double[tamnhoVetor];
 	}
-
-	public double getNumero() {
-		return numero;
+	
+	public double tamanhoVetor() {
+		return vet.length;
 	}
-
-	public void setNumero(double numero) {
-		this.numero = numero;
+	
+	public double[] getVet() {
+		return vet;
 	}
-
-	public static void valores(Soma[] vetor) {
-		for (Soma n : vetor) {
-			System.out.print(n.getNumero() + " ");
-		}
+	
+	public void setElemento(int index, double elemento) {
+		vet[index] = elemento;
 	}
-
-	public static double somaVetores(Soma[] vetor) {
+	
+	public double soma() {
 		double soma = 0.0;
-		for (Soma s : vetor) {
-			soma += s.getNumero();
+		for(double s : vet) {
+			soma += s;
 		}
 		return soma;
 	}
-
-	public static double mediaVetores(Soma[] vetor) {
-		return somaVetores(vetor) / vetor.length;
+	
+	public double media() {
+		return 
+				soma() == 0.0 ? 0.0 : soma() / vet.length;
 	}
 
 }
