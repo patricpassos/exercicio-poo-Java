@@ -13,16 +13,22 @@ public class NumerosNegativos {
 		System.out.print("Quantos números você vai digitar? ");
 		int n = sc.nextInt();
 
-		Negativo[] vetor = new Negativo[n];
+		Negativo vet = new Negativo(n);
 
-		for (int i = 0; i < vetor.length; i++) {
+		for (int i = 0; i < vet.getNumero(); i++) {
 			System.out.print("Digite um número: ");
-			int numero = sc.nextInt();
-			vetor[i] = new Negativo(numero);
+			int elemento = sc.nextInt();
+			vet.addElementos(i, elemento);
 		}
 
-		System.out.println("NÚMEROS NEGATIVOS: ");
-		Negativo.numerosNegativos(vetor);
+		int contNegativo = vet.contagemNegativos();
+		System.out.println("\nCONTAGEM DE NEGATIVOS: " + contNegativo);
+
+		System.out.println("\nNÚMEROS NEGATIVOS: ");
+		int[] numeroNegativo = vet.numerosNegativos();
+		for (int neg : numeroNegativo) {
+			System.out.println(neg);
+		}
 
 		sc.close();
 
