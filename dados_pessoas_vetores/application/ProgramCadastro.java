@@ -18,7 +18,7 @@ public class ProgramCadastro {
 		Pessoas[] vetor = new Pessoas[n];
 
 		for (int i = 0; i < vetor.length; i++) {
-			System.out.printf("Altura da %d° pessoa: ", i + 1);
+			System.out.printf("ProgramAltura da %d° pessoa: ", i + 1);
 			double altura = sc.nextDouble();
 			System.out.printf("Genero da %d° pessoa: ", i + 1);
 			char genero = sc.next().charAt(0);
@@ -30,8 +30,8 @@ public class ProgramCadastro {
 		double mediaFeminino = Pessoas.mediaAlturaFeminino(vetor);
 		double contagemMasculino = Pessoas.contagemMasculino(vetor);
 
-		System.out.printf("\nMenor Altura = %.2f", menor.getAltura());
-		System.out.printf("\nMaior Altura = %.2f", maior.getAltura());
+		System.out.printf("\nMenor ProgramAltura = %.2f", menor.getAltura());
+		System.out.printf("\nMaior ProgramAltura = %.2f", maior.getAltura());
 
 		if (mediaFeminino == 0) {
 			System.out.println("\nNão há mulheres cadastradas");

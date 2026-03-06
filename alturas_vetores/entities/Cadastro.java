@@ -38,35 +38,9 @@ public class Cadastro {
 
 	public void setAltura(double altura) {
 		if (altura < 0.0) {
-			System.out.println("IDADE ERRADA");
+			System.out.println("ALTURA ERRADA");
 		} else {
 			this.altura = altura;
-		}
-	}
-
-	public static double mediaAltura(Cadastro[] cadastro) {
-		double soma = 0.0;
-		for (Cadastro s : cadastro) {
-			soma += s.getAltura();
-		}
-		return soma / cadastro.length;
-	}
-
-	public static double menorDeDezesseis(Cadastro[] cadastro) {
-		double cont = 0.0;
-		for (Cadastro i : cadastro) {
-			if (i.getIdade() < 16) {
-				cont++;
-			}
-		}
-		return cont == 0.0 ? 0.0 : cont / cadastro.length * 100;
-	}
-
-	public static void nomes(Cadastro[] cadastro) {
-		for (Cadastro n : cadastro) {
-			if (n.getIdade() < 16) {
-				System.out.println(n.getNome());
-			}
 		}
 	}
 

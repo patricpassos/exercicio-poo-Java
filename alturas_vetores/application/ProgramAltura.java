@@ -4,8 +4,9 @@ import java.util.Locale;
 import java.util.Scanner;
 
 import entities.Cadastro;
+import services.Operacao;
 
-public class Altura {
+public class ProgramAltura {
 
 	public static void main(String[] args) {
 		
@@ -15,9 +16,9 @@ public class Altura {
 		System.out.print("Quantas pessoas serão cadastradas? ");
 		int n = sc.nextInt();
 		
-		Cadastro[] cadastro = new Cadastro[n];
+		Operacao vetor = new Operacao(n);
 		
-		for(int i = 0; i < cadastro.length; i++) {
+		for(int i = 0; i < vetor.tamanhoVetor(); i++) {
 			System.out.printf("Dados da %d° pessoa: \n", i + 1);
 			System.out.print("Nome: ");
 			sc.nextLine();
@@ -26,15 +27,11 @@ public class Altura {
 			int idade = sc.nextInt();
 			System.out.print("Altura: ");
 			double altura = sc.nextDouble();
-			cadastro[i] = new Cadastro(nome, idade, altura);
+			vetor.setElemento(i, nome, idade, altura);
 		}
 		
-		double media = Cadastro.mediaAltura(cadastro);
-		double menorDeDezesseis = Cadastro.menorDeDezesseis(cadastro);
-		
-		System.out.printf("\nAltura média: %.2f", media);
-		System.out.printf("\nPessoas com menos de 16 anos: %.1f%%\n", menorDeDezesseis);
-		Cadastro.nomes(cadastro);
+		double mediaIdade = vetor.mediaAltura();
+		System.out.printf("Altura média = %.2f", mediaIdade);
 		
 		sc.close();
 		
