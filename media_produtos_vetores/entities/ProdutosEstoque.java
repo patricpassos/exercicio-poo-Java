@@ -4,10 +4,10 @@ public class ProdutosEstoque {
 
 	private String nome;
 	private double preco;
-
+	
 	public ProdutosEstoque(String nome, double preco) {
 		this.nome = nome;
-		setPreco(preco);
+		this.preco = preco;
 	}
 
 	public String getNome() {
@@ -26,14 +26,4 @@ public class ProdutosEstoque {
 		this.preco = preco;
 	}
 	
-	public static double mediaDePrecos(ProdutosEstoque[] vet) {
-		
-		double soma = 0.0;
-		for(int i = 0; i < vet.length; i++) {
-			soma = vet[i].getPreco();
-		}
-		
-		return vet.length > 0 ? soma / vet.length : 0.0;
-	}
-
 }

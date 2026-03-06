@@ -14,10 +14,6 @@ public class Operations {
 		return order;
 	}
 
-	public double[][] getMat() {
-		return mat;
-	}
-
 	public void setElement(int row, int column, double element) {
 		mat[row][column] = element;
 	}

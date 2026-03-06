@@ -15,19 +15,26 @@ public class ProgramMediaProdutos {
 		System.out.print("Quantidade de produtos para cadastro: ");
 		int n = sc.nextInt();
 
-		ProdutosEstoque[] vet = new ProdutosEstoque[n]; 
-
-		for (int i = 0; i < vet.length; i++) {
-			System.out.printf("Digite o nome do %d° produto: ", i + 1);
+		ProdutosEstoque[] vet = new ProdutosEstoque[n];
+		
+		for(int i = 0; i < vet.length; i++) {
 			sc.nextLine();
+			System.out.print("Nome do produto: ");
 			String nome = sc.nextLine();
-			System.out.print("Digite o preço do produto: ");
+			System.out.print("Preco: ");
 			double preco = sc.nextDouble();
 			vet[i] = new ProdutosEstoque(nome, preco);
 		}
 		
-		double media = ProdutosEstoque.mediaDePrecos(vet);
-		System.out.printf("Media dos preços: %.2f", media);
+		double soma = 0.0;
+		for(int i = 0; i < vet.length; i++) {
+			soma += vet[i].getPreco();
+		}
+		
+		double mediaPreco = soma / vet.length;
+		
+		System.out.printf("média dos precos = %.2f", mediaPreco);
+		 
 
 		sc.close();
 
