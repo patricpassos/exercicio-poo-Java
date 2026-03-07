@@ -15,18 +15,15 @@ public class ProgramMaior {
 		System.out.print("Quantidade de números: ");
 		int n = sc.nextInt();
 		
-		Maior[] vetor = new Maior[n];
+		Maior vetor = new Maior(n);
 		
-		for (int i = 0; i < vetor.length; i++) {
+		for (int i = 0; i < n; i++) {
 			System.out.print("Digite um número: ");
-			double numero = sc.nextDouble();
-			vetor[i] = new Maior(numero);
+			double elemento = sc.nextDouble();
+			vetor.addElemento(i, elemento);
 		}
 		
-		double maiorValor = Maior.maiorValor(vetor);
-		double posicao = Maior.posicaoVetor(vetor);
-		System.out.printf("\nMAIOR VALOR = %.1f", maiorValor);
-		System.out.printf("\nPOSICÃO DO MAIOR VALOR = %.0f", posicao);
+		System.out.println(vetor);
 		
 		sc.close();
 

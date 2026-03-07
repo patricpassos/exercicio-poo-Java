@@ -27,15 +27,14 @@ public class Pares {
 		// Cria sequencias de caracteres mutáveis: permitindo concatenar,
 		// inserir, deletar ou inverter textos de forma eficiente sem criar
 		// múltiplos objetos na memória.
-		StringBuilder sb = new StringBuilder(); 
+		StringBuilder sb = new StringBuilder();
 		for (int n : vet) {
-			if(n % 2 == 0) {
-				sb.append(n + " "); //usado para concatenar strings ou adicionar dados (como números, caracteres ou objetos)
+			if (n % 2 == 0) {
+				sb.append(n + " "); // usado para concatenar strings ou adicionar dados (como números, caracteres ou objetos)
 			}
 		}
-		return 
-				sb.toString() + 
-				"\n\nQUANTIDADE DE PARES = " + quantidadePares();
+		sb.append("\n\nQUANTIDADE DE PARES = ").append(quantidadePares());
+		return sb.toString();
 	}
 
 }
