@@ -7,26 +7,23 @@ import entities.Pares;
 public class NumerosPares {
 
 	public static void main(String[] args) {
-		
+
 		Scanner sc = new Scanner(System.in);
-		
+
 		System.out.print("Quantos números você vai digitar: ");
 		int n = sc.nextInt();
-		
-		Pares[] vetor = new Pares[n];
-		
-		for(int i = 0; i < vetor.length; i++) {
+
+		Pares vetor = new Pares(n);
+
+		for (int i = 0; i < n; i++) {
 			System.out.print("Digite um número: ");
-			int numero = sc.nextInt();
-			vetor[i] = new Pares(numero);
+			int elemento = sc.nextInt();
+			vetor.addElementos(i, elemento);
 		}
-		
-		
+
 		System.out.println("\nNÚMEROS PARES:");
-		Pares.numerosPares(vetor);
-		int quantidadePares = Pares.quantidadePares(vetor);
-		System.out.println("\n\nQUANTIDADE DE PARES = " + quantidadePares);
-		
+		System.out.print(vetor + " ");
+
 		sc.close();
 
 	}

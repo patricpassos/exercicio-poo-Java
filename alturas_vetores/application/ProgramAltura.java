@@ -35,13 +35,14 @@ public class ProgramAltura {
 		String[] nome = vetor.nomesMenor16();
 
 		System.out.printf("\nAltura média = %.2f\n", mediaIdade);
-		System.out.printf(menores16 == 0 ? "Não há menores de 16 anos cadastrado\n" : "Pessoas com menos de 16 anos: %.1f%%\n", menores16);
-		
-		for(String ne : nome) {
+		System.out.printf(
+				menores16 == 0 ? "Não há menores de 16 anos cadastrado\n" : "Pessoas com menos de 16 anos: %.1f%%\n",
+				menores16);
+
+		for (String ne : nome) {
 			System.out.println(ne);
 		}
-		
-		
+
 		sc.close();
 
 	}

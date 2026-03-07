@@ -1,37 +1,41 @@
 package entities;
 
 public class Pares {
-	
-	private int numero;
 
-	public Pares(int numero) {
-		this.numero = numero;
-	}
+	private int[] vet;
 
-	public int getNumero() {
-		return numero;
+	public Pares(int n) {
+		this.vet = new int[n];
 	}
 
-	public void setNumero(int numero) {
-		this.numero = numero;
+	public void addElementos(int index, int elemento) {
+		vet[index] = elemento;
 	}
-	
-	public static void numerosPares(Pares[] vetor) {
-		for(Pares p : vetor) {
-			if (p.getNumero() % 2 == 0) {
-				System.out.print(p.getNumero() + "  ");
-			}
-		}
-	}
-	
-	public static int quantidadePares(Pares[] vetor) {
+
+	public int quantidadePares() {
 		int cont = 0;
-		for(Pares c : vetor) {
-			if(c.getNumero() % 2 == 0) {
+		for (int c : vet) {
+			if (c % 2 == 0) {
 				cont++;
 			}
 		}
 		return cont;
+	}
+
+	@Override
+	public String toString() {
+		// Cria sequencias de caracteres mutáveis: permitindo concatenar,
+		// inserir, deletar ou inverter textos de forma eficiente sem criar
+		// múltiplos objetos na memória.
+		StringBuilder sb = new StringBuilder(); 
+		for (int n : vet) {
+			if(n % 2 == 0) {
+				sb.append(n + " "); //usado para concatenar strings ou adicionar dados (como números, caracteres ou objetos)
+			}
+		}
+		return 
+				sb.toString() + 
+				"\n\nQUANTIDADE DE PARES = " + quantidadePares();
 	}
 
 }

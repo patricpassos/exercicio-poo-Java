@@ -39,24 +39,24 @@ public class Operacao {
 		}
 		return (double) contMenores / vet.length * 100.0;
 	}
-	
+
 	public int contagemMenores16() {
 		int cont = 0;
-		for(Cadastro c : vet) {
-			if(c.getIdade() < 16) {
+		for (Cadastro c : vet) {
+			if (c.getIdade() < 16) {
 				cont++;
 			}
 		}
 		return cont;
 	}
-	
+
 	public String[] nomesMenor16() {
 		int tamanhoVetor = contagemMenores16();
 		String[] nome = new String[tamanhoVetor];
-		
+
 		int pos = 0;
-		for(int i = 0; i < vet.length; i++) {
-			if(vet[i].getIdade() < 16) {
+		for (int i = 0; i < vet.length; i++) {
+			if (vet[i].getIdade() < 16) {
 				nome[pos] = vet[i].getNome();
 				pos++;
 			}
