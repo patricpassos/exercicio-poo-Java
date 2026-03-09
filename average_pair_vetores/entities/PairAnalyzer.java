@@ -2,36 +2,37 @@ package entities;
 
 public class PairAnalyzer {
 
-	private int number;
+	private int[] vet;
 
-	public PairAnalyzer(int number) {
-		this.number = number;
+	public PairAnalyzer(int n) {
+		this.vet = new int[n];
 	}
 
-	public int getNumber() {
-		return number;
+	public void setElement(int i, int element) {
+		vet[i] = element;
 	}
 
-	public void setNumber(int number) {
-		this.number = number;
-	}
-
-	public static void averagePair(PairAnalyzer[] vector) {
+	public double averagePair() {
 		int sum = 0;
 		int cont = 0;
-		for (PairAnalyzer s : vector) {
-			if (s.getNumber() % 2 == 0) {
-				sum += s.getNumber();
+		for (int s : vet) {
+			if (s % 2 == 0) {
+				sum += s;
 				cont++;
 			}
 		}
-
-		if (sum == 0) {
-			System.out.println("NO NUMBER IS EVEN");
-		} else {
-			double average = (double) sum / cont;
-			System.out.printf("AVERAGE OF THE PAIRS = %.1f", average);
-		}
+		return sum == 0 ? 0 : (double) sum / cont;
 	}
 
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		double average = averagePair();
+		if (average == 0.0) {
+			sb.append("NO EVEN NUMBER");
+		} else {
+			sb.append("AVERAGE OF THE PAIRS: ").append(average);
+		}
+
+		return sb.toString();
+	}
 }
