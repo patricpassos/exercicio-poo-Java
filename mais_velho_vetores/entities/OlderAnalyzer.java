@@ -30,16 +30,9 @@ public class OlderAnalyzer {
 		}
 	}
 	
-	public static void olderPerson(OlderAnalyzer[] vector) {
-		String person = " ";
-		int personAge = 0;
-		for(OlderAnalyzer p : vector) {
-			if (p.getAge() > personAge) {
-				person = p.getName();
-				personAge = p.getAge();
-			}
-		}
-		System.out.println("OLDEST PERSON: " + person);
+	@Override
+	public String toString() {
+		return name;
 	}
 
 }
