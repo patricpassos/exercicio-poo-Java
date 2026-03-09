@@ -2,35 +2,37 @@ package entities;
 
 public class Media {
 
-	private double elementos;
+	private double[] vet;
 
-	public Media(double elementos) {
-		this.elementos = elementos;
+	public Media(int n) {
+		this.vet = new double[n];
 	}
 
-	public double getElementos() {
-		return elementos;
+	public void setElemento(int index, double elemento) {
+		vet[index] = elemento;
 	}
 
-	public void setElementos(double elementos) {
-		this.elementos = elementos;
-	}
-	
-	public static double mediaVetor(Media[] vetor) {
+	public double mediaVetor() {
 		double soma = 0.0;
-		for(Media m : vetor) {
-			soma += m.getElementos();
+		for (double m : vet) {
+			soma += m;
 		}
-		return soma / vetor.length;
+		return soma / vet.length;
 	}
-	
-	public static void abaixoMedia(Media[] vetor) {
-		double media = mediaVetor(vetor);
-		
-		for(Media a: vetor) {
-			if (a.getElementos() < media) {
-				System.out.println(a.getElementos());
+
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		double media = mediaVetor();
+		sb.append("\nMÉDIA DO VETOR = ").append(String.format("%.3f", mediaVetor())).append("\n");
+
+		sb.append("ELEMENTOS ABAIXO DA MÉDIA:\n");
+		for (int i = 0; i < vet.length; i++) {
+			if (vet[i] < media) {
+				sb.append(vet[i]).append("\n");
 			}
 		}
+		return sb.toString();
 	}
+
 }
