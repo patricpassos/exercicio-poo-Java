@@ -13,28 +13,28 @@ public class ProgramVetoresSoma {
 		System.out.print("Quantos valores vai ter cada vetor? ");
 		int n = sc.nextInt();
 
-		Resultante[] vetorA = new Resultante[n];
-		Resultante[] vetorB = new Resultante[n];
-		Resultante[] vetorC = new Resultante[n];
+		Resultante vetor = new Resultante(n);
 
 		System.out.println("Digite os valores do vetor A:");
-		for (int i = 0; i < vetorA.length; i++) {
-			int numero = sc.nextInt();
-			vetorA[i] = new Resultante(numero);
+		for (int i = 0; i < n; i++) {
+			int elementoA = sc.nextInt();
+			vetor.setElementoA(i, elementoA);
 		}
 
 		System.out.println("Digite os valores do vetor B:");
-		for (int i = 0; i < vetorB.length; i++) {
-			int numero = sc.nextInt();
-			vetorB[i] = new Resultante(numero);
+		for (int i = 0; i < n; i++) {
+			int elementoB = sc.nextInt();
+			vetor.setElementoB(i, elementoB);
 		}
 
-		System.out.println("VETOR RESULTANTE:");
-		for (int i = 0; i < vetorC.length; i++) {
-			int soma = vetorA[i].getNumero() + vetorB[i].getNumero();
-			vetorC[i] = new Resultante(soma);
-			System.out.println(vetorC[i]);
+		vetor.somaVetores();
+		System.out.println("VETOR RESULTANTE");
+		int[] resultante = vetor.somaResultante();
+		for (int r : resultante) {
+			System.out.println(r);
 		}
+		
+		System.out.println(vetor);
 
 		sc.close();
 
