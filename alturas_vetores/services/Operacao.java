@@ -63,5 +63,29 @@ public class Operacao {
 		}
 		return nome;
 	}
+	
+	
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		
+		double mediaDeAltura = mediaAltura();
+		double porcentagemMenores16 = menores16();
+		String[] nomesMenores16 = nomesMenor16();
+		
+		sb.append("\nAltura média: ").append(String.format("%.2f\n", mediaDeAltura));
+		
+		if(nomesMenores16.length > 0) {
+			sb.append("Pessoas com menos de 16 anos: ").append(String.format("%.1f%%\n", porcentagemMenores16));
+			for(String nome : nomesMenores16) {
+				sb.append(nome + "\n");
+			}
+		} else {
+			sb.append("Não há menores de 16 anos cadastrado\n");
+		}
+		
+		return sb.toString();
+	
+	}
 
 }
