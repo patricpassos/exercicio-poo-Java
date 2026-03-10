@@ -29,7 +29,7 @@ public class ProgramAltura {
 			double altura = sc.nextDouble();
 			vetor.setElemento(i, nome, idade, altura);
 		}
-
+		
 		System.out.println(vetor);
 
 		sc.close();

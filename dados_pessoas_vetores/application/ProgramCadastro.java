@@ -3,7 +3,7 @@ package application;
 import java.util.Locale;
 import java.util.Scanner;
 
-import entities.Pessoas;
+import services.AnalisePessoas;
 
 public class ProgramCadastro {
 
@@ -15,33 +15,27 @@ public class ProgramCadastro {
 		System.out.print("Quantas pessoas serão cadastradas? ");
 		int n = sc.nextInt();
 
-		Pessoas[] vetor = new Pessoas[n];
+		AnalisePessoas vetor = new AnalisePessoas(n);
 
-		for (int i = 0; i < vetor.length; i++) {
-			System.out.printf("ProgramAltura da %d° pessoa: ", i + 1);
+		for (int i = 0; i < n; i++) {
+			System.out.printf("Altura da %d° pessoa: ", i + 1);
 			double altura = sc.nextDouble();
-			System.out.printf("Genero da %d° pessoa: ", i + 1);
-			char genero = sc.next().charAt(0);
-			vetor[i] = new Pessoas(altura, genero);
+
+			System.out.printf("Genero da %d° pessoa(M/F): ", i + 1);
+			char genero = sc.next().toUpperCase().charAt(0);
+
+			while (genero != 'M' && genero != 'F') {
+				System.out.print("Entrada inválida! Digite Genero (M/F): ");
+				genero = sc.next().toUpperCase().charAt(0);
+
+			}
+
+			vetor.setElementos(i, altura, genero);
 		}
 
-		Pessoas menor = Pessoas.menorAltura(vetor);
-		Pessoas maior = Pessoas.maiorAltura(vetor);
-		double mediaFeminino = Pessoas.mediaAlturaFeminino(vetor);
-		double contagemMasculino = Pessoas.contagemMasculino(vetor);
-
-		System.out.printf("\nMenor ProgramAltura = %.2f", menor.getAltura());
-		System.out.printf("\nMaior ProgramAltura = %.2f", maior.getAltura());
-
-		if (mediaFeminino == 0) {
-			System.out.println("\nNão há mulheres cadastradas");
-		} else {
-			System.out.printf("\nMédia das alturas das mulheres = %.2f", mediaFeminino);
-		}
-		System.out.printf("\nNúmero de homens: %.0f", contagemMasculino);
+		System.out.println(vetor);
 
 		sc.close();
-
 	}
 
 }
