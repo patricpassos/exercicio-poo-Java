@@ -50,5 +50,6 @@
 	<classpathentry kind="src" path="soma_matrizes"/>
 	<classpathentry kind="src" path="acima_diagonal_matrizes"/>
 	<classpathentry kind="src" path="matriz_geral"/>
+	<classpathentry kind="src" path="numeros_negativos_lista"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
