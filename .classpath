@@ -41,7 +41,6 @@
 	<classpathentry kind="src" path="dados_pessoas_vetores"/>
 	<classpathentry kind="src" path="comerciante_vetores"/>
 	<classpathentry kind="src" path="negativos_lista"/>
-	<classpathentry kind="src" path="altura_lista"/>
 	<classpathentry kind="src" path="salary_increase_list"/>
 	<classpathentry kind="src" path="diagonal_principal_matrizes"/>
 	<classpathentry kind="src" path="soma_linhas_matrizes"/>
@@ -51,5 +50,7 @@
 	<classpathentry kind="src" path="acima_diagonal_matrizes"/>
 	<classpathentry kind="src" path="matriz_geral"/>
 	<classpathentry kind="src" path="numeros_negativos_lista"/>
+	<classpathentry kind="src" path="soma_lista"/>
+	<classpathentry kind="src" path="alturas_lista"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
