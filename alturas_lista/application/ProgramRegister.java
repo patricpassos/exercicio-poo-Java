@@ -31,9 +31,7 @@ public class ProgramRegister {
 			Double height = sc.nextDouble();
 			
 			People p = new People(name, age, sex, height);
-			
-			list.addPerson(p);
-			
+			list.addPerson(p);	
 		}
 		
 		System.out.println(list);
