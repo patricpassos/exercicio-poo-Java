@@ -52,5 +52,6 @@
 	<classpathentry kind="src" path="soma_lista"/>
 	<classpathentry kind="src" path="alturas_lista"/>
 	<classpathentry kind="src" path="experiencia_lista"/>
+	<classpathentry kind="src" path="numeros_pares_lista"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
