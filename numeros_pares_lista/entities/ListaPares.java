@@ -14,6 +14,10 @@ public class ListaPares {
 	public int quantidadePares() {
 		return (int) lista.stream().filter(x -> x % 2 == 0).count();
 	}
+	
+	public double mediaPares() {
+		return lista.stream().filter(x -> x % 2 == 0).mapToInt(x -> x).average().orElse(0.0);
+	}
 
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
@@ -26,6 +30,7 @@ public class ListaPares {
 		}
 
 		sb.append("\n\nQUANTIDADE DE PARES = ").append(quantidadePares());
+		sb.append(mediaPares() == 0.0 ? "\nNENHUM NÚMERO PAR" : "\nMÉDIA DE PARES: %.2f" + String.format("%.1f", mediaPares())); 
 
 		return sb.toString();
 	}
