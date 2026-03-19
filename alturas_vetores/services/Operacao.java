@@ -1,5 +1,8 @@
 package services;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 import entities.Cadastro;
 
 public class Operacao {
@@ -18,8 +21,8 @@ public class Operacao {
 		return vet;
 	}
 
-	public void setElemento(int index, String nome, int idade, double altura) {
-		vet[index] = new Cadastro(nome, idade, altura);
+	public void setElemento(int index, String nome, int idade, double altura, LocalDate data) {
+		vet[index] = new Cadastro(nome, idade, altura, data);
 	}
 
 	public double mediaAltura() {
@@ -68,6 +71,7 @@ public class Operacao {
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
+		DateTimeFormatter formatacaoData = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		
 		double mediaDeAltura = mediaAltura();
 		double porcentagemMenores16 = menores16();
@@ -75,13 +79,17 @@ public class Operacao {
 		
 		sb.append("\nAltura média: ").append(String.format("%.2f\n", mediaDeAltura));
 		
+		for(Cadastro d : vet) {
+			sb.append("\nData de cadastro: ").append(d.getData().format(formatacaoData));
+		}
+	
 		if(nomesMenores16.length > 0) {
-			sb.append("Pessoas com menos de 16 anos: ").append(String.format("%.1f%%\n", porcentagemMenores16));
+			sb.append("\nPessoas com menos de 16 anos: ").append(String.format("%.1f%%\n", porcentagemMenores16));
 			for(String nome : nomesMenores16) {
 				sb.append(nome + "\n");
 			}
 		} else {
-			sb.append("Não há menores de 16 anos cadastrado\n");
+			sb.append("\nNão há menores de 16 anos cadastrado\n");
 		}
 		
 		return sb.toString();

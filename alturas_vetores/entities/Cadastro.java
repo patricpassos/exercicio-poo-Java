@@ -1,15 +1,19 @@
 package entities;
 
+import java.time.LocalDate;
+
 public class Cadastro {
 
 	private String nome;
 	private int idade;
 	private double altura;
+	private LocalDate data;
 
-	public Cadastro(String nome, int idade, double altura) {
+	public Cadastro(String nome, int idade, double altura, LocalDate data) {
 		this.nome = nome;
 		setIdade(idade);
 		setAltura(altura);
+		this.data = data;
 	}
 
 	public String getNome() {
@@ -42,6 +46,14 @@ public class Cadastro {
 		} else {
 			this.altura = altura;
 		}
+	}
+	
+	public LocalDate getData() {
+		return data;
+	}
+	
+	public void setData(LocalDate data) {
+		this.data = data;
 	}
 
 }
