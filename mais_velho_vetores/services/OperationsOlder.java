@@ -1,5 +1,7 @@
 package services;
 
+import java.time.LocalDate;
+
 import entities.OlderAnalyzer;
 
 public class OperationsOlder {
@@ -25,11 +27,25 @@ public class OperationsOlder {
 		}
 		return person;
 	}
+	
+	public int yearBirth() {
+		LocalDate dateNow = LocalDate.now();
+		OlderAnalyzer yearBirthOldestPerson = vet[0];
+		for(OlderAnalyzer yb : vet) {
+			if(yb.getAge() > yearBirthOldestPerson.getAge()) {
+				yearBirthOldestPerson = yb;
+			}
+		}
+		return dateNow.getYear() - yearBirthOldestPerson.getAge();
+	}
 
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		sb.append("OLDER PEOPLE: ").append(olderPerson());
+		sb.append("\nOLDER PEOPLE: \n");
+		sb.append("Name: ").append(olderPerson()).append("\n");
+		sb.append("Year of birth: ").append(yearBirth()).append("\n");
+		
 		return sb.toString();
 	}
 

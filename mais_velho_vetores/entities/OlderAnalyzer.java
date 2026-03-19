@@ -30,9 +30,4 @@ public class OlderAnalyzer {
 		}
 	}
 	
-	@Override
-	public String toString() {
-		return name;
-	}
-
 }
