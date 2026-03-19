@@ -9,7 +9,7 @@ public class Analise {
 
 	public List<Cobaia> lista = new ArrayList<>();
 
-	public void addTeste(Cobaia c) {
+	public void addLista(Cobaia c) {
 		lista.add(c);
 	}
 

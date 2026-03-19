@@ -36,7 +36,7 @@ public class ProgramCadastroCobaias {
 			}
 			
 			Cobaia c = new Cobaia(quantidade, animal);
-			lista.addTeste(c);
+			lista.addLista(c);
 		}
 		
 		System.out.println(lista);
