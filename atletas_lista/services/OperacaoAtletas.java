@@ -13,4 +13,17 @@ public class OperacaoAtletas {
 		listaAtletas.add(a);
 	}
 	
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		
+		for(Atletas atl : listaAtletas) {
+			sb.append("Nome: ").append(atl.getNome()).append("\n");
+			sb.append("Idade: ").append(atl.idade()).append("\n");
+			sb.append("Preço da Inscrição: ").append(atl.totalPagamento()).append("\n");
+		}
+		
+		return sb.toString();
+		
+	}
+	
 }
