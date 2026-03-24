@@ -2,8 +2,8 @@ package entities.enums;
 
 public enum WorkerLevel {
 
-	JUNIOR,
-	MID_LEVEL,
+	JUNIOR, 
+	MID_LEVEL, 
 	SENIOR;
-	
+
 }
