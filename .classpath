@@ -55,5 +55,6 @@
 	<classpathentry kind="src" path="numeros_pares_lista"/>
 	<classpathentry kind="src" path="maior_posicao_lista"/>
 	<classpathentry kind="src" path="atletas_lista"/>
+	<classpathentry kind="src" path="contrato_trabalho_composicao"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
