@@ -57,5 +57,6 @@
 	<classpathentry kind="src" path="atletas_lista"/>
 	<classpathentry kind="src" path="contrato_trabalho_composicao"/>
 	<classpathentry kind="src" path="post_composicao"/>
+	<classpathentry kind="src" path="Pedidos_composicao"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
