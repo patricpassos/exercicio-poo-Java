@@ -1,8 +1,7 @@
 package application;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -13,11 +12,11 @@ import entities.enums.WorkerLevel;
 
 public class ProgramWorkerContract {
 
-	public static void main(String[] args) throws ParseException {
+	public static void main(String[] args) {
 		
 		Locale.setDefault(Locale.US);
 		Scanner sc= new Scanner(System.in);
-		SimpleDateFormat formatDate = new SimpleDateFormat("dd/MM/yyyy");
+		DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		
 		System.out.print("Enter department's name: ");
 		String departmentName = sc.nextLine();
@@ -33,7 +32,7 @@ public class ProgramWorkerContract {
 				workerName,
 				WorkerLevel.valueOf(workerLevel), // instanciado do tipo enumerado no valor equivalente conforme declarado
 				baseSalary,
-				new Department(departmentName) // instanciação e associação com a classe Worker
+				new Department(departmentName) // instanciação e associação com a classe departameto com a Worker
 				);
 		
 		System.out.print("\nHow many contracts to this worker? ");
@@ -42,20 +41,22 @@ public class ProgramWorkerContract {
 		for(int i = 0; i < n; i++) {
 			System.out.printf("Enter contract #%d data:\n", i + 1);
 			System.out.print("Date (DD/MM/YYYY): " );
-			Date contractDate = formatDate.parse(sc.next());
+			LocalDate contractDate = LocalDate.parse(sc.next(), fmt);
 			System.out.print("Value per hour: ");
 			Double valuePerHour = sc.nextDouble();
 			System.out.print("Duration (hours): ");
 			Integer hours = sc.nextInt();
 			
 			HourContract contract = new HourContract(contractDate, valuePerHour, hours); // instanciação do contrato
-			worker.addContract(contract); // Associação do contract ao worker
+			worker.addContract(contract); // Associação do contract ao worker e adição de dados na lista
 		}
 		
 		System.out.print("\nEnter month and year to calculate income (MM/YYYY): ");
 		String monthAndYear = sc.next();
-		int month = Integer.parseInt(monthAndYear.substring(0, 2));
+		
+		int month = Integer.parseInt(monthAndYear.substring(0, 0));
 		int year = Integer.parseInt(monthAndYear.substring(3));
+		
 		System.out.println("Name: " + worker.getName());
 		System.out.println("Department: " + worker.getDepartment().getName());
 		System.out.println("Income for " + monthAndYear + ": " + String.format("%.2f", worker.income(year, month)));
