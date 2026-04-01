@@ -59,5 +59,6 @@
 	<classpathentry kind="src" path="post_composicao"/>
 	<classpathentry kind="src" path="Pedidos_composicao"/>
 	<classpathentry kind="src" path="animal_w3r_heranca"/>
+	<classpathentry kind="src" path="veiculo_w3r_heranca"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
