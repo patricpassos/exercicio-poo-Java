@@ -43,10 +43,14 @@ public class ProgramEmployeePayment {
 			}
 		}
 		
-		System.out.println("\nPAYMENTS");
+		StringBuilder pay = new StringBuilder();
+		pay.append("\nPAYMENTS\n");
+		
 		for(EmployeeH emp : listEmployee) {
-			System.out.println(emp.getName() + " - $ " + String.format("%.2f", emp.payment()));
+			pay.append(emp).append("\n");
 		}
+		System.out.println(pay.toString());
+		
 		
 		sc.close();
 
