@@ -5,7 +5,7 @@ public class EmployeeH {
 	private String name;
 	private Integer hours;
 	private Double valuePerHour;
-	
+
 	public EmployeeH() {
 	}
 
@@ -38,11 +38,11 @@ public class EmployeeH {
 	public void setValuePerHour(Double valuePerHour) {
 		this.valuePerHour = valuePerHour;
 	}
-	
+
 	public Double payment() {
 		return hours * valuePerHour;
 	}
-	
+
 	@Override
 	public String toString() {
 		return name + " - $ " + String.format("%.2f", payment());

@@ -3,8 +3,8 @@ package entities;
 public class OutsourcedEmployee extends EmployeeH {
 
 	private Double additionalCharge;
-	
-	public OutsourcedEmployee () {
+
+	public OutsourcedEmployee() {
 		super();
 	}
 
@@ -20,10 +20,10 @@ public class OutsourcedEmployee extends EmployeeH {
 	public void setAdditionalCharge(Double additionalCharge) {
 		this.additionalCharge = additionalCharge;
 	}
-	
+
 	@Override
 	public Double payment() {
 		return super.payment() + additionalCharge * 1.1;
 	}
-	
+
 }
