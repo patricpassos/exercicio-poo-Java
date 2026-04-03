@@ -2,9 +2,9 @@ package entities;
 
 public class Products {
 
-	protected String name;
-	protected Double price;
-	
+	private String name;
+	private Double price;
+
 	public Products() {
 	}
 
@@ -28,11 +28,9 @@ public class Products {
 	public void setPrice(Double price) {
 		this.price = price;
 	}
-	
+
 	public String priceTag() {
-		return 
-				name + 
-				" $ " + String.format("%.2f", price);
+		return name + " $ " + String.format("%.2f", price);
 	}
-	
+
 }

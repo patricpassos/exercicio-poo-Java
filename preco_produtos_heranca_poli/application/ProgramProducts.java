@@ -14,26 +14,34 @@ import entities.UsedProducts;
 public class ProgramProducts {
 
 	public static void main(String[] args) {
-		
+
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
-		
+
 		List<Products> listProducts = new ArrayList<>();
-		
+
 		System.out.print("Enter the number of products: ");
 		int quantityProducts = sc.nextInt();
-		
-		for(int i = 0; i < quantityProducts; i++) {
+
+		for (int i = 0; i < quantityProducts; i++) {
 			System.out.printf("Product #%d data:\n", i + 1);
 			System.out.print("Common, used or imported (c/u/i): ");
 			char productType = sc.next().toLowerCase().charAt(0);
+
+			while (productType != 'c' && productType != 'u' && productType != 'i') {
+				System.out.println("Error: select only (c/u/i): ");
+
+				System.out.print("Common, used or imported (c/u/i): ");
+				productType = sc.next().toLowerCase().charAt(0);
+			}
+
 			System.out.print("Name: ");
 			sc.nextLine();
 			String name = sc.nextLine();
 			System.out.print("Price: ");
 			double price = sc.nextDouble();
-			
-			if(productType == 'u') {
+
+			if (productType == 'u') {
 				System.out.print("Manufacture date (DD/MM/YYYY): ");
 				LocalDate manufactureDate = LocalDate.parse(sc.next(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
 				Products productUsed = new UsedProducts(name, price, manufactureDate);
@@ -48,10 +56,13 @@ public class ProgramProducts {
 				listProducts.add(productsCommon);
 			}
 		}
-		
+
 		System.out.println("\nPRICE TAGS:");
-		
-		
+
+		for (Products prod : listProducts) {
+			System.out.println(prod.priceTag());
+		}
+
 		sc.close();
 
 	}
