@@ -4,7 +4,7 @@ public abstract class TaxPayer {
 
 	private String name;
 	private Double anualIncome;
-	
+
 	public TaxPayer() {
 	}
 
@@ -28,7 +28,7 @@ public abstract class TaxPayer {
 	public void setAnualIncome(Double anualIcome) {
 		this.anualIncome = anualIcome;
 	}
-	
+
 	public abstract Double tax();
-	
+
 }

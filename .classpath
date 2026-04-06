@@ -62,6 +62,6 @@
 	<classpathentry kind="src" path="veiculo_w3r_heranca"/>
 	<classpathentry kind="src" path="pagamento_funcionario_heranca"/>
 	<classpathentry kind="src" path="preco_produtos_heranca_poli"/>
-	<classpathentry kind="src" path="pagamento_imposto"/>
+	<classpathentry kind="src" path="pagamento_imposto_abstracao"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
