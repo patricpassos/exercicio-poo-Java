@@ -64,5 +64,6 @@
 	<classpathentry kind="src" path="preco_produtos_heranca_poli"/>
 	<classpathentry kind="src" path="pagamento_imposto_abstracao"/>
 	<classpathentry kind="src" path="reserva_hotel_try_cat"/>
+	<classpathentry kind="src" path="conta_bancaria_try_cat"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

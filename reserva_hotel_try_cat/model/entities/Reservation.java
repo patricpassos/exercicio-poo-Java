@@ -45,10 +45,10 @@ public class Reservation {
 		return (int) Duration.between(checkIn.atStartOfDay(), checkOut.atStartOfDay()).toDays();
 	}
 
-	public void updateDates(LocalDate checkIn, LocalDate checkOut) throws DomainException {
+	public void updateDates(LocalDate checkIn, LocalDate checkOut) throws DomainException { //propaga a exceção
 		LocalDate now = LocalDate.now();
 		if(checkIn.isBefore(now) || checkOut.isBefore(now)) {
-			throw new DomainException("Reservation dates for update must be future dates");
+			throw new DomainException("Reservation dates for update must be future dates"); //lança a exceção
 		}
 		if(!checkOut.isAfter(checkIn)) {
 			throw new DomainException("Check-out date must be after check-in date");
@@ -64,7 +64,7 @@ public class Reservation {
 				"Room: "
 				+ roomNumber
 				+ ", check-in: " + checkIn.format(dateFormatter)
-				+ ", check-out: " + checkOut.format(dateFormatter) + ", "
-				+ duration() + " nights";
+				+ ", check-out: " + checkOut.format(dateFormatter)
+				+ ", " + duration() + " nights";
 	}
 }
