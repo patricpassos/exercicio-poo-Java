@@ -65,5 +65,6 @@
 	<classpathentry kind="src" path="pagamento_imposto_abstracao"/>
 	<classpathentry kind="src" path="reserva_hotel_try_cat"/>
 	<classpathentry kind="src" path="conta_bancaria_try_cat"/>
+	<classpathentry kind="src" path="cadastro_simple_arquivos"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
