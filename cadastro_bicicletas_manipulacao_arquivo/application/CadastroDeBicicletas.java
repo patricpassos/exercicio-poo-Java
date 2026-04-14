@@ -22,8 +22,10 @@ public class CadastroDeBicicletas {
 
 		String path = "c:\\temp";
 		boolean cricaoSubPasta = new File(path + "\\cadastroBicicletas").mkdir();
+		if(cricaoSubPasta == true) {
+			System.out.println("Pasta criada com sucesso!!");
+		}
 
-		File file = new File(path);
 		String caminhoArquivo = "c:\\temp\\cadastroBicicletas\\bicicletas.csv";
 		boolean arquivoExistente = new File(caminhoArquivo).exists();
 
@@ -57,13 +59,24 @@ public class CadastroDeBicicletas {
 		
 		try (BufferedReader br = new BufferedReader(new FileReader(caminhoArquivo))){
 			String line = br.readLine();
+			
+			if(line != null) {
+				String[] header = line.split(",");
+				System.out.printf("\n%-15s %-15s %-15s%n", header[0].trim(), header[1].trim(), header[2].trim());
+				System.out.println("-----------------------------------------------");
+			}
+			
+			line = br.readLine();
 			while(line != null) {
-				System.out.println(line);
+				String[] fields = line.split(",");
+				System.out.printf("%-15s %-15s %5s%n", fields[0].trim(), fields[1].trim(), fields[2].trim());
 				line = br.readLine();
 			}
 		}catch(IOException e) {
 			System.out.println("Error: " + e.getMessage());
 		}
+		
+		sc.close();
 
 	}
 
