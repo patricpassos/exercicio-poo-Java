@@ -22,7 +22,7 @@ public class CadastroDeBicicletas {
 
 		String path = "c:\\temp";
 		boolean cricaoSubPasta = new File(path + "\\cadastroBicicletas").mkdir();
-		if(cricaoSubPasta == true) {
+		if (cricaoSubPasta == true) {
 			System.out.println("Pasta criada com sucesso!!");
 		}
 
@@ -56,26 +56,26 @@ public class CadastroDeBicicletas {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
-		try (BufferedReader br = new BufferedReader(new FileReader(caminhoArquivo))){
+
+		try (BufferedReader br = new BufferedReader(new FileReader(caminhoArquivo))) {
 			String line = br.readLine();
-			
-			if(line != null) {
+
+			if (line != null) {
 				String[] header = line.split(",");
 				System.out.printf("\n%-15s %-15s %-15s%n", header[0].trim(), header[1].trim(), header[2].trim());
 				System.out.println("-----------------------------------------------");
 			}
-			
+
 			line = br.readLine();
-			while(line != null) {
+			while (line != null) {
 				String[] fields = line.split(",");
-				System.out.printf("%-15s %-15s %5s%n", fields[0].trim(), fields[1].trim(), fields[2].trim());
+				System.out.printf("%-15s %-15s %5s%n", fields[0].trim(), fields[1].trim(), Integer.parseInt(fields[2].trim()));
 				line = br.readLine();
 			}
-		}catch(IOException e) {
+		} catch (IOException e) {
 			System.out.println("Error: " + e.getMessage());
 		}
-		
+
 		sc.close();
 
 	}
