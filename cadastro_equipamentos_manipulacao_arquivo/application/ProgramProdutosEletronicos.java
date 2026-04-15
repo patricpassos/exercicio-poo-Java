@@ -17,7 +17,7 @@ public class ProgramProdutosEletronicos {
 		
 		try(BufferedReader br = new BufferedReader(new FileReader(path))){
 			
-			String line = br.readLine(); //descarte da primeira linha (cabeçalho)
+			String line = br.readLine();//descarte da primeira linha (cabeçalho)
 			if(line != null) {
 				String[] header = line.split(",");
 				System.out.printf("%-20s %-15s %-15s\n", header[0].trim(), header[1].trim(), header[2].trim());

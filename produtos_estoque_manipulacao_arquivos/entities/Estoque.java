@@ -1,19 +1,15 @@
 package entities;
 
-import java.io.Serializable;
+public class Estoque {
 
-public class Eletronicos implements Serializable {
-	
-	private static final long serialVersionUID = 1L;
-	
 	private String nome;
 	private Double preco;
 	private Integer quantidade;
 	
-	public Eletronicos() {
+	public Estoque() {
 	}
 
-	public Eletronicos(String nome, Double preco, Integer quantidade) {
+	public Estoque(String nome, Double preco, Integer quantidade) {
 		this.nome = nome;
 		this.preco = preco;
 		this.quantidade = quantidade;
@@ -42,10 +38,9 @@ public class Eletronicos implements Serializable {
 	public void setQuantidade(Integer quantidade) {
 		this.quantidade = quantidade;
 	}
-
-	@Override
-	public String toString() {
-		return String.format("%-20s %-15.2f %5d", nome, preco, quantidade);
+	
+	public double total() {
+		return preco * quantidade;
 	}
 	
 }
