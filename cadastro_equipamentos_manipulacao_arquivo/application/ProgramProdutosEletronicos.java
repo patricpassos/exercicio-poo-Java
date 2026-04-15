@@ -18,9 +18,13 @@ public class ProgramProdutosEletronicos {
 		try(BufferedReader br = new BufferedReader(new FileReader(path))){
 			
 			String line = br.readLine(); //descarte da primeira linha (cabeçalho)
+			if(line != null) {
+				String[] header = line.split(",");
+				System.out.printf("%-20s %-15s %-15s\n", header[0].trim(), header[1].trim(), header[2].trim());
+			}
+			
 			line = br.readLine();
 			while(line != null) {
-				
 				String[] vet = line.split(",");
 				String name = vet[0];
 				Double preco = Double.parseDouble(vet[1]);
@@ -32,7 +36,6 @@ public class ProgramProdutosEletronicos {
 				line = br.readLine(); // conteudo da linha
 			}
 			
-			System.out.println("PRODUTOS:");
 			for(Eletronicos elet : list) {
 				System.out.println(elet);
 			}

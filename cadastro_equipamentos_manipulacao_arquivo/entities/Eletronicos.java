@@ -45,8 +45,10 @@ public class Eletronicos implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Eletronicos [nome=" + nome + ", preco=" + preco + ", quantidade=" + quantidade + "]";
+		return 
+				 String.format("%-20s", nome)
+				+ String.format("%-15s", preco)
+				+ String.format("%5s", quantidade);
 	}
-	
 	
 }
