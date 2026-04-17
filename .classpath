@@ -71,5 +71,6 @@
 	<classpathentry kind="src" path="cadastro_equipamentos_manipulacao_arquivo"/>
 	<classpathentry kind="src" path="produtos_estoque_manipulacao_arquivos"/>
 	<classpathentry kind="src" path="excluindo_linhas_manipulacoes_arquivo"/>
+	<classpathentry kind="src" path="crud_manipulcao_arquivo"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
