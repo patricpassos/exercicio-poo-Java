@@ -16,6 +16,7 @@ import entities.Peca;
 public class ProgramEstoque {
 
 	public static void leituraArquivo(String path, List<Peca> listaPeca) {
+		System.out.print("\nLISTA DE PEÇAS");
 		listaPeca.clear(); // limpeza da lista na memoria não acumula dados de leitura
 		try (BufferedReader br = new BufferedReader(new FileReader(path))) {
 			String line = br.readLine();
@@ -47,6 +48,20 @@ public class ProgramEstoque {
 			System.out.println("Error: " + e.getMessage());
 		}
 	}
+	
+	public static void salvamentoArquivo(String path, List<Peca> listaPeca) {
+		try (BufferedWriter bw = new BufferedWriter(new FileWriter(path))) {
+			bw.write("marca, modalidade, serie, quantidade, preco, total");
+			bw.newLine();
+			for (Peca pa : listaPeca) {
+				bw.write(pa.getMarca() + ", " + pa.getModalidade() + ", " + pa.getSerie() + ", "
+						+ pa.getQuantidade() + ", " + pa.getPreco() + ", " + pa.total());
+				bw.newLine();
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 
 	public static void main(String[] args) {
 
@@ -76,9 +91,7 @@ public class ProgramEstoque {
 			switch (opcao) {
 			case 1:
 				// Monstrar lista de peças
-				System.out.print("\nLISTA DE PEÇAS");
 				leituraArquivo(path, listaPeca);
-
 				break;
 
 			case 2:
@@ -125,8 +138,7 @@ public class ProgramEstoque {
 			case 3:
 				// atualizar
 				leituraArquivo(path, listaPeca);
-
-				System.out.print("\nDigite a serie da peça que deseja atuaizar: ");
+				System.out.print("\nDigite a serie da peça que deseja atualizar: ");
 				sc.nextLine();
 				String serieBusca = sc.nextLine();
 
@@ -134,20 +146,19 @@ public class ProgramEstoque {
 				for (Peca p : listaPeca) {
 					if (p.getSerie().equalsIgnoreCase(serieBusca)) {
 						peca = p;
-						System.out.println("PEÇA ENCONTRADA");
+						System.out.println("Serie encontrada");
 						break;
 					}
 				}
 
 				if (peca != null) {
-					System.out.print(
-							"\nQual campo você deseja atualizar(0-Marca, 1-Modalidade, 2-Série, 3-Quantidade, 4-Preço)?: ");
+					System.out.print("\nQual campo você deseja atualizar(0-Marca, 1-Modalidade, 2-Serie, 3-Quantidade, 4-Preço)?: ");
 					int campo = sc.nextInt();
 
 					sc.nextLine();
 					if (campo == 0) {
 						System.out.print("Nova marca: ");
-						peca.setModalidade(sc.nextLine());
+						peca.setMarca(sc.nextLine());
 					} else if (campo == 1) {
 						System.out.print("Nova modalidade: ");
 						peca.setModalidade(sc.nextLine());
@@ -161,17 +172,39 @@ public class ProgramEstoque {
 						System.out.print("Novo preço: ");
 						peca.setPreco(sc.nextDouble());
 					}
-					
-					//adicionar bufferedWrite
-					
+
+					salvamentoArquivo(path, listaPeca);
+					System.out.println("Item Atualizado com sucesso!");
 				} else {
-					System.out.print("\nSérie não localizada no sistema.\n");
+					System.out.print("\nSerie não localizada no sistema.\n");
 				}
 
 				break;
 
 			case 4:
 				// excluir
+				leituraArquivo(path, listaPeca);
+				System.out.print("Qual serie você deseja excluir: ");
+				sc.nextLine();
+				serieBusca = sc.nextLine();
+				
+				peca = null;
+				for (Peca p : listaPeca) {
+					if (p.getSerie().equalsIgnoreCase(serieBusca)) {
+						peca = p;
+						System.out.println("Serie encontrada");
+						break;
+					}
+				}
+				
+				if(peca != null) {
+					listaPeca.remove(peca);
+					salvamentoArquivo(path, listaPeca);
+					System.out.println("Item excluido com sucesso!");
+				} else {
+					System.out.println("Série não localizada.");
+				}
+				
 				break;
 
 			case 0:
