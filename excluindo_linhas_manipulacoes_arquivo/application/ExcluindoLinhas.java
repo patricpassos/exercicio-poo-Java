@@ -62,8 +62,7 @@ public class ExcluindoLinhas {
 			line = br.readLine();
 			while (line != null) {
 				String[] fields = line.split(",");
-				System.out.printf("%-15s %-15s %5s%n", fields[0].trim(), fields[1].trim(),
-						Integer.parseInt(fields[2].trim()));
+				System.out.printf("%-15s %-15s %5s%n", fields[0].trim(), fields[1].trim(), Integer.parseInt(fields[2].trim()));
 				line = br.readLine();
 			}
 		} catch (IOException e) {
