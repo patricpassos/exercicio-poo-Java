@@ -1,22 +1,25 @@
-package entities;
+package model.entities;
+
+import model.exceptions.DomainExceptionCrud;
 
 public class Peca {
-	
+
 	private String marca;
 	private String modalidade;
 	private String serie;
 	private Integer quantidade;
 	private Double preco;
-	
+
 	public Peca() {
 	}
 
-	public Peca(String marca, String modalidade, String serie, Integer quantidade, Double preco) {
+	public Peca(String marca, String modalidade, String serie, Integer quantidade, Double preco)
+			throws DomainExceptionCrud {
 		this.marca = marca;
 		this.modalidade = modalidade;
 		this.serie = serie;
-		this.quantidade = quantidade;
-		this.preco = preco;
+		setQuantidade(quantidade);
+		setPreco(preco);
 	}
 
 	public String getMarca() {
@@ -47,7 +50,11 @@ public class Peca {
 		return quantidade;
 	}
 
-	public void setQuantidade(Integer quantidade) {
+	public void setQuantidade(Integer quantidade) throws DomainExceptionCrud {
+		// EVITAR QUANTIDADE NEGATIVA
+		if (quantidade <= 0) {
+			throw new DomainExceptionCrud("Error: Não pode adicionar quantidade negativa no sistema");
+		}
 		this.quantidade = quantidade;
 	}
 
@@ -55,18 +62,22 @@ public class Peca {
 		return preco;
 	}
 
-	public void setPreco(Double preco) {
+	public void setPreco(Double preco) throws DomainExceptionCrud {
+		// EVITAR PREÇO NEGATIVO
+		if (preco <= 0.0) {
+			throw new DomainExceptionCrud("Erros: Não pode adicionar valores negativos no sistema");
+		}
 		this.preco = preco;
 	}
-	
+
 	public Double total() {
 		return quantidade * preco;
 	}
-	
+
 	@Override
 	public String toString() {
-		return
-				String.format("%-15s %-15s %-15s %-15d %-15.2f %-15.2f", marca, modalidade, serie, quantidade, preco, total());
+		return String.format("%-15s %-15s %-15s %-15d %-15.2f %-15.2f", marca, modalidade, serie, quantidade, preco,
+				total());
 	}
-	
+
 }
