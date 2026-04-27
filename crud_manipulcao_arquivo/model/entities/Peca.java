@@ -76,7 +76,7 @@ public class Peca {
 
 	@Override
 	public String toString() {
-		return String.format("%-15s %-15s %-15s %-15d %-15.2f %-15.2f", marca, modalidade, serie, quantidade, preco,
+		return String.format("%-15s %-15s %-20s %-15d %-15.2f %-15.2f", marca, modalidade, serie, quantidade, preco,
 				total());
 	}
 

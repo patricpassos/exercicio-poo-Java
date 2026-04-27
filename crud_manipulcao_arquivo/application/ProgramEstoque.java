@@ -100,7 +100,7 @@ public class ProgramEstoque {
 				System.out.print("Escolha um opção: ");
 				opcao = sc.nextInt();
 			} catch (InputMismatchException e) {
-				System.out.println("Error: Digite apenas numeros");
+				System.err.println("Error: Digite apenas numeros");
 				sc.nextLine();
 				opcao = -1;
 			}
@@ -116,10 +116,9 @@ public class ProgramEstoque {
 				char resp;
 				try (BufferedWriter bw = new BufferedWriter(new FileWriter(path, true))) {
 					if (!arquivoExistente) {
-						bw.write("marca, modalidade, serie, quantidade, preco, total");
+						bw.write("marca, modalidade, série, quantidade, preco, total");
 						bw.newLine();
 					}
-
 					do {
 						try {
 							sc.nextLine();
@@ -127,7 +126,7 @@ public class ProgramEstoque {
 							String marca = sc.nextLine();
 							System.out.print("Modalidade: ");
 							String modalidade = sc.nextLine();
-							System.out.print("Serie: ");
+							System.out.print("Série: ");
 							String serie = sc.nextLine();
 							System.out.print("Quantidade: ");
 							Integer quantidade = sc.nextInt();
@@ -151,60 +150,72 @@ public class ProgramEstoque {
 					System.out.println("\nCadastro(s) finalizado(s)!");
 
 				} catch (IOException e) {
-					System.out.println("Error: " + e.getMessage());
+					System.err.println("Error: " + e.getMessage());
 				}
 				break;
 
 			case 3:
 				// atualizar
 				leituraArquivo(path, listaPeca);
-				System.out.print("\nDigite a serie da peça que deseja atualizar: ");
+				System.out.print("Digite a série da peça que deseja atualizar: ");
 				sc.nextLine();
 				String serieBusca = sc.nextLine().toLowerCase().trim();
 
 				Peca peca = buscarPeca(listaPeca, serieBusca);
 
 				if (peca != null) {
-					
-					try {
-						System.out.print("Qual campo você deseja atualizar(0-Marca, 1-Modalidade, 2-Serie, 3-Quantidade, 4-Preço)?: ");
-						int campo = sc.nextInt();
-						
-						sc.nextLine();
-						if (campo == 0) {
-							System.out.print("Nova marca: ");
-							peca.setMarca(sc.nextLine());
-						} else if (campo == 1) {
-							System.out.print("Nova modalidade: ");
-							peca.setModalidade(sc.nextLine());
-						} else if (campo == 2) {
-							System.out.print("Nova serie: ");
-							peca.setSerie(sc.nextLine());
-						} else if (campo == 3) {
-							System.out.print("Nova quantidade: ");
-							peca.setQuantidade(sc.nextInt());
-						} else if (campo == 4) {
-							System.out.print("Novo preço: ");
-							peca.setPreco(sc.nextDouble());
+					boolean flagParada = false;
+					while(flagParada == false) {
+						try {
+							System.out.print("Qual campo você deseja atualizar(0-Marca, 1-Modalidade, 2-Série, 3-Quantidade, 4-Preço)?: ");
+							int campo = sc.nextInt();
+							while(campo < 0 || campo > 4) {
+								System.err.println("Erro: Opção inválida! Escolha de 0 a 4");
+								System.out.print("Qual campo você deseja atualizar(0-Marca, 1-Modalidade, 2-Série, 3-Quantidade, 4-Preço)?: ");
+								campo = sc.nextInt();
+							}
+							sc.nextLine();
+							switch(campo) {
+							case 0:
+								System.out.print("Nova marca: ");
+								peca.setMarca(sc.nextLine());
+								break;
+							case 1:
+								System.out.print("Nova modalidade: ");
+								peca.setModalidade(sc.nextLine());
+								break;
+							case 2:
+								System.out.print("Nova serie: ");
+								peca.setSerie(sc.nextLine());
+							case 3:
+								System.out.print("Nova quantidade: ");
+								peca.setQuantidade(sc.nextInt());
+								break;
+							case 4:
+								System.out.print("Novo preço: ");
+								peca.setPreco(sc.nextDouble());
+								break;
+							}
+							
+							flagParada = true;
+							salvamentoArquivo(path, listaPeca);
+							System.out.println("Item Atualizado com sucesso!");
+						} catch (DomainExceptionCrud e) {
+							System.err.println(e.getMessage());
+						} catch(InputMismatchException e) {
+							System.err.println("Error: selecione o campo correto!");
+							 sc.nextLine();
 						}
-					} catch (DomainExceptionCrud e) {
-						System.out.println(e.getMessage());
-					} catch(InputMismatchException e) {
-						System.err.println("Error: selecione o campo correto!");
-						 sc.nextLine();
 					}
-					
-					salvamentoArquivo(path, listaPeca);
-					System.out.println("Item Atualizado com sucesso!");
 				} else {
-					System.out.print("\nSerie não localizada no sistema.\n");
+					System.out.print("\nSérie não localizada no sistema.\n");
 				}
 				break;
 
 			case 4:
 				// excluir
 				leituraArquivo(path, listaPeca);
-				System.out.print("Qual serie você deseja excluir: ");
+				System.out.print("Qual série você deseja excluir: ");
 				sc.nextLine();
 				serieBusca = sc.nextLine().toLowerCase().trim();
 
@@ -213,7 +224,7 @@ public class ProgramEstoque {
 				if (peca != null) {
 					listaPeca.remove(peca);
 					salvamentoArquivo(path, listaPeca);
-					System.out.println("Item excluido com sucesso!");
+					System.out.println("Item excluído com sucesso!");
 				} else {
 					System.out.println("Série não localizada.");
 				}
