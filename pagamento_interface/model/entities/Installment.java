@@ -11,7 +11,6 @@ public class Installment {
 	}
 
 	public Installment(LocalDate dueDate, Double amount) {
-		super();
 		this.dueDate = dueDate;
 		this.amount = amount;
 	}
