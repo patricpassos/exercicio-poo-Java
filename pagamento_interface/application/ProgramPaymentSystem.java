@@ -1,17 +1,16 @@
 package application;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.Locale;
-import java.util.Scanner;
-
-import model.entities.Contract;
+import model.services.OnlinePaymentService;
+import model.services.PaypalService;
 
 public class ProgramPaymentSystem {
 
 	public static void main(String[] args) {
 		
-		Locale.setDefault(Locale.US);
+		OnlinePaymentService ps = new PaypalService();
+		System.out.println(ps.paymentFee(200.00));
+		
+		/*Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
 		DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		
@@ -32,7 +31,7 @@ public class ProgramPaymentSystem {
 		
 		
 		
-		sc.close();
+		sc.close();*/
 
 	}
 

@@ -1,7 +1,5 @@
 package model.services;
 
-import java.time.LocalDate;
-
 import model.entities.Contract;
 
 public class ContractService {
@@ -20,7 +18,11 @@ public class ContractService {
 		this.onlinePayment = onlinePayment;
 	}
 
-	public void processContract(Contract contract) {
-		
+	public void processContract(Contract contract, int months) {
+		double monthlyInstallment = contract.getTotalValue() / months;
+		for(int i = 1; i < months; i++) {
+			double interestPayment = monthlyInstallment + onlinePayment.interest(monthlyInstallment, i);
+			double paymentInstallments = interestPayment + onlinePayment.paymentFee(interestPayment);
+		}
 	}
 }
