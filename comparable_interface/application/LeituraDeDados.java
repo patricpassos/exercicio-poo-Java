@@ -28,7 +28,6 @@ public class LeituraDeDados {
 		} catch(IOException e) {
 			System.out.println("Error: " + e.getMessage());
 		}
-		
 	}
 
 }
