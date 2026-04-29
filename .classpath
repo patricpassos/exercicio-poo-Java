@@ -73,5 +73,6 @@
 	<classpathentry kind="src" path="excluindo_linhas_manipulacoes_arquivo"/>
 	<classpathentry kind="src" path="crud_manipulcao_arquivo"/>
 	<classpathentry kind="src" path="pagamento_interface"/>
+	<classpathentry kind="src" path="heranca_multp_prob_diamante_interface"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

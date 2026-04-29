@@ -42,7 +42,6 @@ public class ProgramPaymentSystem {
 			System.out.println(installments);
 		}
 		
-		
 		sc.close();
 
 	}
