@@ -76,5 +76,6 @@
 	<classpathentry kind="src" path="heranca_multp_prob_diamante_interface"/>
 	<classpathentry kind="src" path="comparable_interface"/>
 	<classpathentry kind="src" path="compare_to_interface"/>
+	<classpathentry kind="src" path="default_methods_interface"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
