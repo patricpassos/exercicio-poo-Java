@@ -42,9 +42,9 @@ public class ProgramPurchaseOrder {
 		for (int i = 0; i < quantityOrder; i++) {
 			sc.nextLine();
 			System.out.printf("Enter #%d item data:\n", i + 1);
-			System.out.print("Product name: ");
+			System.out.print("ProductGenerics name: ");
 			String product = sc.nextLine();
-			System.out.print("Product price: ");
+			System.out.print("ProductGenerics price: ");
 			Double price = sc.nextDouble();
 
 			ProductOrder productSpecification = new ProductOrder(product, price);

@@ -24,7 +24,7 @@ public class ProgramProducts {
 		int quantityProducts = sc.nextInt();
 
 		for (int i = 0; i < quantityProducts; i++) {
-			System.out.printf("Product #%d data:\n", i + 1);
+			System.out.printf("ProductGenerics #%d data:\n", i + 1);
 			System.out.print("Common, used or imported (c/u/i): ");
 			char productType = sc.next().toLowerCase().charAt(0);
 
