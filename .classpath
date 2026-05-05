@@ -79,5 +79,6 @@
 	<classpathentry kind="src" path="default_methods_interface"/>
 	<classpathentry kind="src" path="numeros_generics"/>
 	<classpathentry kind="src" path="produtos_generics_delimitados"/>
+	<classpathentry kind="src" path="figuras_generics_curinga"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
