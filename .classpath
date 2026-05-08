@@ -83,5 +83,6 @@
 	<classpathentry kind="src" path="generics_curingas_delimitados"/>
 	<classpathentry kind="src" path="comparacao_hashcode_equals"/>
 	<classpathentry kind="src" path="valores_distintos_set"/>
+	<classpathentry kind="src" path="portal_aluno_set"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
