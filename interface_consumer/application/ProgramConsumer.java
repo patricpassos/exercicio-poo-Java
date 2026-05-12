@@ -22,13 +22,12 @@ public class ProgramConsumer {
 		//list.forEach(ConsumerProdutos :: staticPrecoAtualizacao); Referência do metodo estatico
 		//list.forEach(ConsumerProdutos :: nonStaticPrecoAtualizacao); Referência do metodo não estatico
 		double tx = 1.1;
-		list.forEach(p -> p.setPreco(p.getPreco() * tx)); // Expressão lambda inline
+		//list.forEach(p -> p.setPreco(p.getPreco() * tx)); // Expressão lambda inline
 		
-		/*Consumer<ConsumerProdutos> cons = p -> {
+		Consumer<ConsumerProdutos> cons = p -> {
 			p.setPreco(p.getPreco() * tx);
 		};
-		list.forEach(cons);*/
-		
+		list.forEach(cons);
 		
 		list.forEach(System.out::println);
 
