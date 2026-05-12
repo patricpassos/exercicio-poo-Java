@@ -19,18 +19,19 @@ public class ProgramPredicateProdutos {
 		list.add(new PredicateProdutos("Tablet", 350.50));
 		list.add(new PredicateProdutos("HD Case", 80.90));
 		
-		//list.removeIf(p -> p.getPreco() >= 100.0);
+		//list.removeIf(p -> p.getPreco() >= min); Expressão lambda inline
 		//list.removeIf(new ProdutoPredicate()); //Interface funcional objeto instanciado da classe
-		
 		//list.removeIf(PredicateProdutos::staticProdutoPredicate); //Referência do metodo estatico
 		//list.removeIf(PredicateProdutos::nonStaticProdutoPredicate); //Referência do metodo não estatico
 		
-		Predicate<PredicateProdutos> pred = p -> p.getPreco() >= 100.0; // Expressão lambda declarada
+		double min = 100.0;
+		Predicate<PredicateProdutos> pred = p -> p.getPreco() >= min; // Expressão lambda declarada pode-se usar variaveis de entrada
 		list.removeIf(pred);
 		
-		for(PredicateProdutos p : list) {
-			System.out.println(p);
-		}
+		list.forEach(System.out::println);
+		//for(PredicateProdutos p : list) {
+		//	System.out.println(p);
+		//}
 
 	}
 
