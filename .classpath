@@ -87,5 +87,6 @@
 	<classpathentry kind="src" path="eleicoes_map"/>
 	<classpathentry kind="src" path="interface_predicate"/>
 	<classpathentry kind="src" path="interface_consumer"/>
+	<classpathentry kind="src" path="interface_function"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
