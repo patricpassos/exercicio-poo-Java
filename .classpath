@@ -88,5 +88,6 @@
 	<classpathentry kind="src" path="interface_predicate"/>
 	<classpathentry kind="src" path="interface_consumer"/>
 	<classpathentry kind="src" path="interface_function"/>
+	<classpathentry kind="src" path="funcoes_interface"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
