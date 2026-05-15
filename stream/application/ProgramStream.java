@@ -43,7 +43,7 @@ public class ProgramStream {
 			List<String> nome = list.stream()
 					.filter(p -> p.getPreco() < media)
 					.map(p -> p.getNome())
-					.sorted(comp.reversed()) // outra opção não precisa declarar a variavel comp .sorted(Comparator.reverseOrder())
+					.sorted(comp.reversed()) // outra opção .sorted(Comparator.reverseOrder())
 					.collect(Collectors.toList());
 			
 			nome.forEach(System.out::println);
