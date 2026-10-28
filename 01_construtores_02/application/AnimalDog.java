@@ -29,30 +29,27 @@ public class AnimalDog {
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
 		
-		Dog dogA = dataDog(sc);
-		
-		Dog dogB = dataDog(sc);
-		
-		/*Dog dogA = new Dog("Princess", "Stell blue", true, 5.47);
-		dogA.bark();
-		dogA.bark();
-		dogA.bark();
-		
-		System.out.println("Dog's Name: " + dogA.getName());
-		System.out.println("Dog's Colo: " + dogA.getColor());
-		System.out.println("Dog's is trained: " + dogA.isTrained());
-		System.out.println("Do's Physique: " + dogA.largeBreed());
-		System.out.println("Total number of barks: " + dogA.getBarksCount());
-		
-		Dog dogB = new Dog("Juca", "Black", false, 13.8);
-		System.out.println("Dog's Name: " + dogB.getName());
-		System.out.println("Dog's Colo: " + dogB.getColor());
-		System.out.println("Dog's is trained: " + dogB.isTrained());
-		System.out.println("Dog's Physique: " + dogB.largeBreed());
-		System.out.println("Total number of barks: " + dogB.getBarksCount());
-		System.out.println();
-		System.out.print("Compare the colors: ");
-		dogA.compareColors(dogB);*/
+		try {
+			Dog dogA = dataDog(sc);
+            dogA.bark();
+            dogA.bark();
+            dogA.bark();
+            
+            Dog dogB = dataDog(sc);
+            
+            System.out.println("\nRegistration Details");
+            
+            System.out.println(dogA);
+    		System.out.println();
+    		System.out.println(dogB);
+
+    		System.out.println("\nCompare the colors: " + ((dogA.hasSameColors(dogB)) ? "YES" : "NO"));
+			
+		} catch (IllegalArgumentException e) {
+			System.out.println("Unexpected error during initial registration: " + e.getMessage());
+		} catch (Exception e) {
+			System.out.println("Input error: Enter the data in the correct format!");
+		}
 		
 		sc.close();
 

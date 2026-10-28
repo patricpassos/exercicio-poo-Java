@@ -12,7 +12,7 @@ public class Dog {
 		this.name = name;
 		this.color = color;
 		this.trained = trained;
-		this.weight = weight;
+		this.weight = validateWeight(weight);
 	}
 
 	public String getName() {
@@ -26,7 +26,7 @@ public class Dog {
 	public int getBarksCount() {
 		return barksCount;
 	}
-	
+
 	public void setTrained(boolean trained) {
 		this.trained = trained;
 	}
@@ -34,27 +34,41 @@ public class Dog {
 	public void bark() {
 		barksCount++;
 	}
-	
+
 	public boolean isTrained() {
 		return trained;
 	}
-	
+
 	public String largeBreed() {
-		return switch(Double.valueOf(weight)) {
-				case Double l when l <= 5.0 ->  "Mini/Toy";
-				case Double l when l <= 15.0 -> "Pequeno";
-				case Double l when l <= 25.0 -> "Medio";
-				default -> "Grande";
-			};
+		return switch (Double.valueOf(weight)) {
+		case Double l when l <= 5.0 -> "Mini/Toy";
+		case Double l when l <= 15.0 -> "Pequeno";
+		case Double l when l <= 25.0 -> "Medio";
+		default -> "Grande";
+		};
 	}
-	
-	public void compareColors(Dog otherDog) {
-		if (this.color.equalsIgnoreCase(otherDog.color)) {
-			System.out.println("Yes");
-		} else {
-			System.out.println("No");
+
+	public boolean hasSameColors(Dog otherDog) {
+		if (otherDog == null) {
+			return false;
 		}
-		
+		return this.color.equalsIgnoreCase(otherDog.color);
+	}
+
+	public static double validateWeight(double weight) {
+		if (weight <= 0) {
+			throw new IllegalArgumentException("Weight must be greater than zero!");
+		} 
+		return weight;
+	}
+
+	@Override
+	public String toString() {
+		return "Dog's Name: " + name + "\n" + 
+			   "Dog's Color: " + color + "\n" + 
+			   "Dog's is trained: " + trained + "\n" + 
+			   "Dog's Physique: " + largeBreed() + "\n" + 
+			   "Total number of barks: " + barksCount + "\n";
 	}
 
 }
