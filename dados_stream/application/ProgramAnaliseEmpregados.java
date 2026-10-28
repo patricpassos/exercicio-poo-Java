@@ -22,7 +22,7 @@ public class ProgramAnaliseEmpregados {
 		
 		//c:\\temp\\empregados_stream.csv
 		System.out.println("Entre com o caminho do arquivo: ");
-		String caminho = "c:\\temp\\empregados_stream.csv";
+		String caminho = sc.next();
 		System.out.print("Digite o salário: ");
 		Double salario = sc.nextDouble();
 		

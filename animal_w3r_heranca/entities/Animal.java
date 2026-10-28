@@ -30,7 +30,7 @@ public class Animal {
 	}
 
 	public void emitirSom() {
-		System.out.println("Animal faz som caracteristoco");
+		System.out.println("AnimalCat faz som caracteristoco");
 	}
 		
 }
