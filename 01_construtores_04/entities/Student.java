@@ -11,9 +11,7 @@ public class Student {
 	private double grade02;
 	private double grade03;
 	private double grade04;
-	private String status;
 	private int attendanceCount;
-	private char Gpa;
 
 	public Student() {
 		this(0, "Unknown", 0, 0.0, 0.0, 0.0, 0.0);
@@ -28,7 +26,6 @@ public class Student {
 		this.grade02 = validateGrade(grade02);
 		this.grade03 = validateGrade(grade03);
 		this.grade04 = validateGrade(grade04);
-		this.status = "Pending";
 	}
 
 	//fail-fast
@@ -53,21 +50,35 @@ public class Student {
 		return (grade01 + grade02 + grade03 + grade04) / 4;
 	}
 	
-	public void updateStatus() {
-		status = (averageGrades() >= 6.0) ? "Passed" : "Failed";
+	public String getStatus() {
+		return (averageGrades() >= 6.0) ? "Passed" : "Failed";
 	}
 	
-	public double weightedAverage() {
+	public double calculateWeightedAverage() {
 		double sumWeightedNotes = grade01 * 2.0 + grade02 * 2.0 + grade03 * 3.0 + grade04 * 3.0;
 		return (sumWeightedNotes == 0.0) ? 0.0 : sumWeightedNotes / 10.0;
 	}
 	
-	public void Gpa() {
-		Gpa = weightedAverage() >= 8.0 ? 'A' : weightedAverage() >= 6.0 ? 'B' : 'C';
+	public char getGpa() {
+		double weightedAverage = calculateWeightedAverage();
+		return weightedAverage >= 8.0 ? 'A' : weightedAverage >= 6.0 ? 'B' : 'C';
 	}
 	
 	public boolean hasSameGpa(Student otherStudent) {
-		return this.Gpa == otherStudent.Gpa;
+		return this.getGpa() == otherStudent.getGpa();
+	}
+	
+	public String getEducationalLevel() {
+		if (this.age <= 5) {
+	        return "Childhood education";
+	    } else if (this.age <= 14) {
+	        return "Elementary/Middle school";
+	    } else if (this.age <= 17) {
+	        return "High school";
+	    } else {
+	        return "Youth and Adult Education";
+	    }
+				
 	}
 	
 	@Override
@@ -76,12 +87,10 @@ public class Student {
 				"Id student: " + studentId + "\n" +
 				"Name: " + studentName + "\n" +
 				"Age: " + age + "\n" +
+				"Educational attainment: " + getEducationalLevel() + "\n" +
 				String.format("Average of grades %.2f%n", averageGrades()) +
-				"Status: " + status + "\n" +
-				//"Grande: " + status + "\n" + 
-				//"teste: " + sumNotes + "\n" +
-				"GPA: " + Gpa + "\n" +	
-				//String.format("Amedia ponderada %.2f%n", weightedAverage()) +
+				"Status: " + getStatus() + "\n" +
+				"GPA: " + getGpa() + "\n" +	
 				String.format("Percentage of classes attended: %d%% ", getAttendancePercentage());
 	}
 
