@@ -73,5 +73,6 @@
 	<classpathentry kind="src" path="01_construtores_02"/>
 	<classpathentry kind="src" path="01_construtores_03"/>
 	<classpathentry kind="src" path="01_construtores_04"/>
+	<classpathentry kind="src" path="01_construtores_05"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
