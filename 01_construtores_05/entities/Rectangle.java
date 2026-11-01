@@ -6,21 +6,29 @@ public class Rectangle {
 	private double width;
 	
 	public Rectangle(double length, double width) {
-		this.length = length;
-		this.width = width;
+		this.length = validateDimension(length);
+		this.width = validateDimension(width);
 	}
 	
 	public Rectangle(Rectangle rectangle) {
 		this.length = rectangle.length;
 		this.width = rectangle.width;
 	}
+	
+	//fail-fast
+	public static double validateDimension(double value) {
+		if(value <= 0.0) {
+			throw new IllegalArgumentException("Dimension must be greater than 0.0 (received: " + value + ")");
+		}
+		return value;
+	}
 
 	public void setLength(double length) {
-		this.length = length;
+		this.length = validateDimension(length);;
 	}
 
 	public void setWidth(double width) {
-		this.width = width;
+		this.width = validateDimension(width);
 	}
 	
 	public double areaRectangle() {
