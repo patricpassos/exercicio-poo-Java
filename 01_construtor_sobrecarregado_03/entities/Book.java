@@ -11,8 +11,8 @@ public class Book {
 	
 	public Book() {
 		this.title = "Unknown";
-		this.author = "Unknown";
-		this.price = 0.0;
+        this.author = "Unknown";
+        this.price = 0.0;
 	}
 
 	public Book(String title, String author) {

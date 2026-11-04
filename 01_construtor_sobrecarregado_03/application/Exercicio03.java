@@ -34,7 +34,9 @@ public class Exercicio03 {
 	        System.out.println(book4);
 	        discount = book4.discountPrice(0.0);
 	        System.out.printf("New discounted price %.2f", discount);
-	        System.out.println("\n\nBook 3 and book 4 have the same price: " + ((book4.hasSamePrice(book3))? "Yes" : "No"));
+	        
+	        System.out.printf("%n%nBook %s and %s: %s", book4.getTitle(), book3.getTitle(), (book4.hasSamePrice(book3)) ? "it’s the same price" : "it doesn't have the same price");
+	        
 			
 		} catch(IllegalArgumentException e) {
 			System.out.println("Erro: " + e.getMessage());

@@ -69,16 +69,12 @@ public class Student {
 	}
 	
 	public String getEducationalLevel() {
-		if (this.age <= 5) {
-	        return "Childhood education";
-	    } else if (this.age <= 14) {
-	        return "Elementary/Middle school";
-	    } else if (this.age <= 17) {
-	        return "High school";
-	    } else {
-	        return "Youth and Adult Education";
-	    }
-				
+		return switch(Integer.valueOf(age)) {
+		case Integer a when a <= 5  -> "Childhood education";
+		case Integer a when a <= 14 -> "Elementary/Middle school";
+		case Integer a when a <= 17 -> "High school";
+		default -> "Youth and Adult Education";
+		};				
 	}
 	
 	@Override

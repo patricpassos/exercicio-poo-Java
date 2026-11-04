@@ -69,11 +69,11 @@
 	<classpathentry kind="src" path="funcoes_interface"/>
 	<classpathentry kind="src" path="stream"/>
 	<classpathentry kind="src" path="dados_stream"/>
-	<classpathentry kind="src" path="01_construtores_01"/>
-	<classpathentry kind="src" path="01_construtores_02"/>
-	<classpathentry kind="src" path="01_construtores_03"/>
-	<classpathentry kind="src" path="01_construtores_04"/>
-	<classpathentry kind="src" path="01_construtores_05"/>
-	<classpathentry kind="src" path="01_contrutores_06"/>
+	<classpathentry kind="src" path="01_construtor_padrao_01"/>
+	<classpathentry kind="src" path="01_construtor_parametrizado_02"/>
+	<classpathentry kind="src" path="01_construtor_sobrecarregado_03"/>
+	<classpathentry kind="src" path="01_construtores_encadeamento_04"/>
+	<classpathentry kind="src" path="01_construtores_copia_05"/>
+	<classpathentry kind="src" path="01_contrutores_validacao_06"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -8,7 +8,7 @@ public class Cat {
 	private double weight;
 
 	public Cat() {
-		this("Unknown", 0, "Unknown", 1.0);
+		this("Unknown", 0, "Unknown", 0.0);
 	}
 
 	public Cat(String name, int age, String breed, double weight) {
@@ -22,10 +22,6 @@ public class Cat {
 		return name;
 	}
 
-	public void setName(String name) {
-		this.name = name;
-	}
-
 	public int getAge() {
 		return age;
 	}
@@ -36,10 +32,6 @@ public class Cat {
 
 	public String getBreed() {
 		return breed;
-	}
-
-	public void setBreed(String breed) {
-		this.breed = breed;
 	}
 
 	public double getWeight() {
@@ -87,7 +79,7 @@ public class Cat {
 							 "\nCat's Breed: %s" +
 							 "\nCat's Weight: %.2f" + 
 							 "\nCat is: %s", 
-							 name, age, breed, weight, (isKitten() ? "Kitten" : "Adult"));
+							 getName(), getAge(), getBreed(), getWeight(), (isKitten() ? "Kitten" : "Adult"));
 	}
 
 }
