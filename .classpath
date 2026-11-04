@@ -75,5 +75,6 @@
 	<classpathentry kind="src" path="01_construtores_encadeamento_04"/>
 	<classpathentry kind="src" path="01_construtores_copia_05"/>
 	<classpathentry kind="src" path="01_contrutores_validacao_06"/>
+	<classpathentry kind="src" path="01_construtores_valores_padrao_07"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

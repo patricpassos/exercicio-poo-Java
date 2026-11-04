@@ -44,9 +44,7 @@ public class Account {
 	}
 	
 	public void calculateMonthlyInstanllment(double loanAmount) {
-		if (loanAmount <= 0.0) {
-			throw new IllegalArgumentException("Error: Loan amount must be greater than zero!");
-		}
+		if (loanAmount <= 0.0) { throw new IllegalArgumentException("Error: Loan amount must be greater than zero!");}
 		this.monthlyInstallment = loanAmount * (MONTHLY_INTEREST_RATE * Math.pow((1 + MONTHLY_INTEREST_RATE), 12)) / (Math.pow((1 + MONTHLY_INTEREST_RATE), 12) - 1);
 	}
 	
@@ -71,7 +69,7 @@ public class Account {
 				String.format("Number of deposits ....................................: %d%n", countDeposit) +
 				String.format("Number of withdrawal ..................................: %d%n", countWithdrawal) + 
 				String.format("Minimum balance .......................................: %s%n", (minimumBalanceActivated) ? "Active ($ " + MINIMUM_BALANCE + ")" : "Disabled") +
-				String.format("Monthly loan installments .............................: %.2f\n", monthlyInstallment) + 
+				String.format("Monthly loan installments .............................: %.2f%n", monthlyInstallment) + 
 				String.format("total amount to be paid on the loan (12x) .............: %.2f", monthlyInstallment * 12);
 	}
 	
