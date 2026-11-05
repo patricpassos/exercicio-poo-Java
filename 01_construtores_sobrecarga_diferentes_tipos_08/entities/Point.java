@@ -11,16 +11,15 @@ public class Point {
 	}
 
 	public Point(double x, double y) {
-		this.x = (int) x;
-		this.y = (int) y;
+		this((int) x, (int) y);
 	}
 	
 	public void reflection(char axis) {
 		char axisMajor = Character.toUpperCase(axis);
 		switch(axisMajor) {
-		case 'X' -> y *= -1;
-		case 'Y' -> x *= -1;
-		default -> throw new IllegalArgumentException("Select axis x or y");
+			case 'X' -> y *= -1;
+			case 'Y' -> x *= -1;
+			default -> throw new IllegalArgumentException("Select axis x or y");
 		}
 	}
 	
@@ -29,11 +28,13 @@ public class Point {
 		this.y += dy;
 	}
 	
-	public double calculateDistancebetweenTwoPoints(Point otherPoint) {
+	public double calculateDistanceBetweenTwoPoints(Point otherPoint) {
+		if (otherPoint == null) {throw new IllegalArgumentException("The target point cannot be null.");}
 		return Math.sqrt(Math.pow((otherPoint.x - this.x), 2) + Math.pow((otherPoint.y - this.y), 2));
 	}
 	
 	public boolean isSamePoint(Point otherPoint) {
+		if (otherPoint == null) {return false;}
 		return this.x == otherPoint.x && this.y == otherPoint.y;
 	}
 	
