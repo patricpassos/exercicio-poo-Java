@@ -41,7 +41,7 @@ public class Car {
 	
 	public double calculateFuelEfficiency(double mileage, double litersConsumed) {
 		if(mileage <= 0.0 || litersConsumed <= 0.0) {
-			throw new IllegalArgumentException("Incorrect values");
+			throw new IllegalArgumentException("Invalid input values");
 		}
 		return mileage / litersConsumed;
 	}
