@@ -77,5 +77,6 @@
 	<classpathentry kind="src" path="01_contrutores_validacao_06"/>
 	<classpathentry kind="src" path="01_construtores_valores_padrao_07"/>
 	<classpathentry kind="src" path="01_construtores_sobrecarga_diferentes_tipos_08"/>
+	<classpathentry kind="src" path="01_construtores_arrays_09"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
