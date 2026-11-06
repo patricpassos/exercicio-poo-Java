@@ -47,6 +47,7 @@ public class Exercicio09 {
 			
 			System.out.println(classroom04);
 			searchStudent(classroom04, "Nascimento");
+			
 		} catch (IllegalArgumentException e) {
 			System.err.println(e.getMessage());
 		}
