@@ -79,5 +79,7 @@
 	<classpathentry kind="src" path="01_construtores_sobrecarga_diferentes_tipos_08"/>
 	<classpathentry kind="src" path="01_construtores_arrays_09"/>
 	<classpathentry kind="src" path="01_construtores_singleton_10"/>
+	<classpathentry kind="src" path="02_encapsulamento_01"/>
+	<classpathentry kind="src" path="02_encapsulamento_02"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
