@@ -44,13 +44,17 @@ public class ExercicioEncapsulamento01 {
 			System.err.println(e.getMessage());
 		}
 		
-		Person person04 = new Person();
-		person04.setName("João");
-		person04.setAge(17);
-		person04.setCountry("Brazil");
-		person04.addNationality("Spain");
-		person04.addNationality("Italy");
-		System.out.println(person04);
+		try {
+			Person person04 = new Person();
+			person04.setName(null);
+			person04.setAge(17);
+			person04.setCountry("Brazil");
+			person04.addNationality("Spain");
+			person04.addNationality("Italy");
+			System.out.println(person04);
+		} catch (IllegalArgumentException e) {
+			System.err.println();
+		}
 
 	}
 
