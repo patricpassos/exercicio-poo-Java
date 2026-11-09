@@ -20,9 +20,7 @@ public class ExercicioEncapsulamento03 {
 		} catch (IllegalArgumentException e) {
 			System.err.println(e.getMessage());
 		}
-		
-		
-		
+
 		//Escreva um programa em Java onde a classe "Rectangle" impeça a definição de um comprimento ou largura negativos.
 		//Escreva um programa em Java onde a classe "Rectangle" inclua um método para verificar se ela é um quadrado.
 		//Escreva um programa em Java onde a classe "Rectangle" calcule o comprimento da diagonal.

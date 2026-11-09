@@ -21,7 +21,7 @@ public class ProgramEmployeePayment {
 		int quantityEmployee = sc.nextInt();
 
 		for (int i = 0; i < quantityEmployee; i++) {
-			System.out.printf("Employee #%d data:\n", i + 1);
+			System.out.printf("EmployeeEn #%d data:\n", i + 1);
 			System.out.print("Outsourced (y/n): ");
 			char outsourced = sc.next().toLowerCase().charAt(0);
 			System.out.print("Name: ");
