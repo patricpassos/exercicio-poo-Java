@@ -81,9 +81,10 @@
 	<classpathentry kind="src" path="01_construtores_singleton_10"/>
 	<classpathentry kind="src" path="02_encapsulamento_arraylist_01"/>
 	<classpathentry kind="src" path="02_encapsulamento_02"/>
-	<classpathentry kind="src" path="02_Encapsulamento_03"/>
+	<classpathentry kind="src" path="02_encapsulamento_03"/>
 	<classpathentry kind="src" path="02_encapsulamento_enum_datas_04"/>
 	<classpathentry kind="src" path="02_encapsulamento_05"/>
 	<classpathentry kind="src" path="02_encapsulamento_06"/>
+	<classpathentry kind="src" path="02_encapsulamento_arraylist_07"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
