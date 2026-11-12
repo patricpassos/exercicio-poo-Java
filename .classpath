@@ -87,5 +87,6 @@
 	<classpathentry kind="src" path="02_encapsulamento_06"/>
 	<classpathentry kind="src" path="02_encapsulamento_arraylist_07"/>
 	<classpathentry kind="src" path="02_encapsulamento_08"/>
+	<classpathentry kind="src" path="02_encapsulamento_09"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
