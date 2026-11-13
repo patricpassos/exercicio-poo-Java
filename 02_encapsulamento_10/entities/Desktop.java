@@ -4,21 +4,23 @@ import entities.enums.OperatingSystem;
 
 public class Desktop {
 	
+	private static final int MIN_RAMSIZE = 4; 
 	private static final int MAX_RAMSIZE = 258;
 	
 	private String brand;
 	private String processor;
 	private OperatingSystem operatingSystem;
 	private int ramSize;
-	private int architecture; // 32 / 64 bits
-	private Software software;
+	private int architecture;
+	private double powerConsumption;
 
-	public Desktop(String brand, String processor, String operatingSystem, int ramSize, int architecture) {
-		this.brand = brand;
-		this.processor = processor;
+	public Desktop(String brand, String processor, String operatingSystem, int ramSize, int architecture, double powerConsumption) {
+		this.brand = validateValue(brand);
+		this.processor = validateValue(processor);
 		this.operatingSystem = OperatingSystem.fromString(operatingSystem);
 		this.ramSize = validateRamSize(ramSize);
 		this.architecture = validateArchitecture(architecture);
+		this.powerConsumption = validatePowerConsumption(powerConsumption);
 	}
 	
 	public String getOperatingSystem() {
@@ -40,7 +42,18 @@ public class Desktop {
 		return ramSize;
 	}
 	
-	public void setRamSize(int ramSize) {
+	public double estimateEnergyConsumption(double hoursUsed, int days) {
+		if (hoursUsed < 0 || hoursUsed > 24) {
+            throw new IllegalArgumentException("Hours used per day must be between 0 and 24.");
+        }
+        if (days <= 0) {
+            throw new IllegalArgumentException("Days must be greater than zero.");
+        }
+        double totalHours = hoursUsed * days;
+        return (this.powerConsumption * totalHours) / 1000.0;
+	}
+	
+	public void upgradeRam(int ramSize) {
 		int validRamSize = validateRamSize(ramSize);
 		int totalRamSize = this.ramSize + validRamSize;
 		if(totalRamSize > MAX_RAMSIZE) {
@@ -49,12 +62,17 @@ public class Desktop {
 		this.ramSize = totalRamSize;
 	}
 	
-	public void setgetOperatingSystem(String operatingSystem) {
+	public void setOperatingSystem(String operatingSystem) {
 		this.operatingSystem = OperatingSystem.fromString(operatingSystem);
 	}
 	
+	//dependência de uso temporario (USA UM)
 	public boolean isCompatible(Software software) {
 		boolean compatibility = true;
+		
+		if(software == null) {
+			throw new IllegalArgumentException("Value incorrect.");
+		}
 		if(this.ramSize < software.getRamSize()) {
 			return false;
 		}
@@ -76,8 +94,8 @@ public class Desktop {
 	}
 	
 	public static int validateRamSize(int ramSize) {
-		if(ramSize < 0 || ramSize > MAX_RAMSIZE) {
-			throw new IllegalArgumentException("Ram size incorrect");
+		if(ramSize < MIN_RAMSIZE || ramSize > MAX_RAMSIZE) {
+			throw new IllegalArgumentException("RAM size must be between " + MIN_RAMSIZE + "GB and " + MAX_RAMSIZE + "GB.");
 		}
 		return ramSize;
 	}
@@ -89,6 +107,13 @@ public class Desktop {
 		return architecture;
 	}
 	
+	public static double validatePowerConsumption(double powerConsumption) {
+		if(powerConsumption <= 0.0) {
+			throw new IllegalArgumentException("Power consumption must be greater than zero.");
+		}
+		return powerConsumption;
+	}
+	
 	@Override
 	public String toString() {
 		return 
@@ -96,7 +121,7 @@ public class Desktop {
 				"Processor: " + getProcessor() + "\n" + 
 				"Operating System: " + getOperatingSystem() + "\n" +
 				String.format("Architecture: %d Bits%n", getArchitecture()) +
-				String.format("RAM size: %dGB%n", getRamSize());
+				String.format("RAM size: %d GB%n", getRamSize());
 	}
 	
 }

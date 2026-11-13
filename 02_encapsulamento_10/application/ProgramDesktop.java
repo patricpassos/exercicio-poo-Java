@@ -9,11 +9,11 @@ public class ProgramDesktop {
 		
 		
 		try {
-			Desktop desktop = new Desktop("Acer", "Intel Core i5", "Linux", 8, 64);
-			desktop.setRamSize(16);
-			desktop.setgetOperatingSystem("windows");
+			Desktop desktop = new Desktop("Acer", "Intel Core i5", "Linux", 8, 64, 650);
+			desktop.upgradeRam(16);
+			desktop.setOperatingSystem("windows");
 			System.out.println(desktop);
-			
+			System.out.println("Estimate consumption: " + desktop.estimateEnergyConsumption(10.0, 8) + " Kwh");
 			
 			Software software = new Software("Sonora", "WINDOWS", 16, 32);
 			System.out.println(software);

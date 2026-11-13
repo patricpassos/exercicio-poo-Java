@@ -7,10 +7,10 @@ public class Software {
 	private String name;
 	private OperatingSystem operatingSystem;
 	private int ramSize; 
-	private int architecture;   // 32 ou 64 bits
+	private int architecture;
 
 	public Software(String name, String operatingSystem, int ramSize, int architecture) {
-		this.name = name;
+		this.name = Desktop.validateValue(name);
 		this.operatingSystem = OperatingSystem.fromString(operatingSystem);
 		this.ramSize = validateRamSize(ramSize);
 		this.architecture = validateArchitecture(architecture);
@@ -47,13 +47,12 @@ public class Software {
 		return architecture;
 	}
 	
-	
 	@Override
 	public String toString() {
 		return 
-				"Pragram name: " + getName() + "\n" +
+				"Program name: " + getName() + "\n" +
 				"Operating System: " + getOperatingSystem() + "\n" + 
-				String.format("Minimum RAM required for the software: %dGB%n", getRamSize()) +
+				String.format("Minimum RAM required for the software: %d GB%n", getRamSize()) +
 				String.format("System architecture: %d Bits%n", getArchitecture());
 	}
 	

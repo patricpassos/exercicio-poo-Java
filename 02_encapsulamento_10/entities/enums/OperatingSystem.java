@@ -10,7 +10,7 @@ public enum OperatingSystem {
 		}
 		
 		for(OperatingSystem os : OperatingSystem.values()) {
-			if(os.name().equalsIgnoreCase(operatingSystem)) {
+			if(os.name().equalsIgnoreCase(operatingSystem.trim())) {
 				return os;
 			}
 		}
