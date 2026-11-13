@@ -1,6 +1,7 @@
 package entities;
 
 import entities.enums.OperatingSystem;
+import entities.enums.ProcessorModel;
 
 public class Desktop {
 	
@@ -8,7 +9,7 @@ public class Desktop {
 	private static final int MAX_RAMSIZE = 258;
 	
 	private String brand;
-	private String processor;
+	private ProcessorModel processor;
 	private OperatingSystem operatingSystem;
 	private int ramSize;
 	private int architecture;
@@ -16,7 +17,7 @@ public class Desktop {
 
 	public Desktop(String brand, String processor, String operatingSystem, int ramSize, int architecture, double powerConsumption) {
 		this.brand = validateValue(brand);
-		this.processor = validateValue(processor);
+		this.processor = ProcessorModel.fromString(processor);
 		this.operatingSystem = OperatingSystem.fromString(operatingSystem);
 		this.ramSize = validateRamSize(ramSize);
 		this.architecture = validateArchitecture(architecture);
@@ -35,7 +36,7 @@ public class Desktop {
 	}
 	
 	public String getProcessor() {
-		return processor;
+		return processor.name().toLowerCase().replace("_", " ");
 	}
 	
 	public int getRamSize() {
@@ -51,6 +52,10 @@ public class Desktop {
         }
         double totalHours = hoursUsed * days;
         return (this.powerConsumption * totalHours) / 1000.0;
+	}
+	
+	public void upgradeProcessor(String newProcessor) {
+		this.processor = ProcessorModel.fromString(newProcessor);
 	}
 	
 	public void upgradeRam(int ramSize) {
