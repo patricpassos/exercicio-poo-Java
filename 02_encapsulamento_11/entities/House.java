@@ -1,8 +1,14 @@
 package entities;
 
+import entities.enums.ResidentialHouses;
+
 public class House {
 
 	private String address;
+	private int latitude;
+	private int longitude;
+	private ResidentialHouses typeHouse;
+	private String livingSpaces;
 	private int numberOfRooms;
 	private double area;
 	
