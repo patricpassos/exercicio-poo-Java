@@ -4,43 +4,36 @@ import entities.enums.ResidentialHouses;
 
 public class House {
 
-	private String address;
-	private int latitude;
-	private int longitude;
+	private Address address;
 	private ResidentialHouses typeHouse;
-	private String livingSpaces;
-	private int numberOfRooms;
-	private double area;
+	private double builtArea;
 	
+	public House(Address address, String typeHouse, double builtArea) {
+		this.address = address;
+		this.typeHouse = ResidentialHouses.fromString(typeHouse);
+		this.builtArea = validatebuiltArea(builtArea);
+	}
 	
-	public String getAddress() {
+	public Address getAddress() {
 		return address;
 	}
 
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-	public int getNumberOfRooms() {
-		return numberOfRooms;
-	}
-
-	public void setNumberOfRooms(int numberOfRooms) {
-		this.numberOfRooms = numberOfRooms;
-	}
-
-	public double getArea() {
-		return area;
-	}
-
-	public void setArea(double area) {
-		this.area = area;
+	public String getTypeHouse() {
+		return typeHouse.name().toLowerCase().replace("_", " ");
 	}
 	
-	public double calculatePrice(double priceSquareMeter) {
-		return this.area * priceSquareMeter;
+	public double getBuiltArea() {
+		return builtArea;
 	}
 
+	public double calculatePrice(double priceSquareMeter) {
+		if(priceSquareMeter <= 0.0) {
+			throw new IllegalArgumentException("Price incorrect.");
+		}
+		return this.builtArea * priceSquareMeter;
+	}
+
+	//fail-fast
 	public static String valueStr(String valueStr) {
 		if(valueStr == null || valueStr.isBlank()) {
 			throw new IllegalArgumentException("Address incorrect.");
@@ -55,18 +48,20 @@ public class House {
 		return numberOfRooms;
 	}
 	
-	public static double area(double area) {
-		if(area <= 0) {
+	public static double validatebuiltArea(double builtArea) {
+		if(builtArea <= 0) {
 			throw new IllegalArgumentException("The square area of ​​the property cannot be negative.");
 		}
-		return area;
+		return builtArea;
 	}
 	
 	@Override
 	public String toString() {
 		return
-				"Address: " + getAddress() + "\n" +
-				"Number of rooms: " + getNumberOfRooms() + "\n" + 
-				String.format("Area: %.2f", getArea());
+				"Residential address" + "\n" + 
+				getAddress().toString() + "\n" +
+				"Type house: " + getTypeHouse() + "\n" + 
+				String.format("Total built area: %.2f m²", getBuiltArea());
+				
 	}
 }
