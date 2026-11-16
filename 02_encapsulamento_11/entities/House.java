@@ -7,11 +7,17 @@ public class House {
 	private Address address;
 	private ResidentialHouses typeHouse;
 	private double builtArea;
+	private double landArea;
+	private double builtPricePerSqm;
+    private double landPricePerSqm;
 	
-	public House(Address address, String typeHouse, double builtArea) {
+	public House(Address address, String typeHouse, double builtArea, double landArea, double builtPricePerSqm, double landPricePerSqm) {
 		this.address = address;
 		this.typeHouse = ResidentialHouses.fromString(typeHouse);
-		this.builtArea = validatebuiltArea(builtArea);
+		this.builtArea = validatePositive(builtArea);
+		this.landArea = validatePositive(landArea);
+		this.builtPricePerSqm = validatePositive(builtPricePerSqm);
+		this.landPricePerSqm =validatePositive(landPricePerSqm);
 	}
 	
 	public Address getAddress() {
@@ -25,13 +31,38 @@ public class House {
 	public double getBuiltArea() {
 		return builtArea;
 	}
-
-	public double calculatePrice(double priceSquareMeter) {
-		if(priceSquareMeter <= 0.0) {
-			throw new IllegalArgumentException("Price incorrect.");
-		}
-		return this.builtArea * priceSquareMeter;
+	
+	public double getLandArea() {
+		return landArea;
 	}
+	
+	public double getBuiltPricePerSqm() {
+		return builtPricePerSqm;
+	}
+
+	public void setBuiltPricePerSqm(double builtPricePerSqm) {
+		this.builtPricePerSqm = validatePositive(builtPricePerSqm);
+	}
+
+	public double getLandPricePerSqm() {
+		return landPricePerSqm;
+	}
+
+	public void setLandPricePerSqm(double landPricePerSqm) {
+		this.landPricePerSqm = validatePositive(landPricePerSqm);
+	}
+
+	public double calculatePriceBuiltArea() {
+        return this.builtArea * this.builtPricePerSqm;
+    }
+
+    public double calculatePriceLandArea() {
+        return this.landArea * this.landPricePerSqm;
+    }
+	
+    public double totalPrice() {
+        return calculatePriceBuiltArea() + calculatePriceLandArea();
+    }
 
 	//fail-fast
 	public static String valueStr(String valueStr) {
@@ -41,18 +72,11 @@ public class House {
 		return valueStr;
 	}
 	
-	public static int numberRooms (int numberOfRooms) {
-		if(numberOfRooms <= 0) {
-			throw new IllegalArgumentException("The number of rooms dont cannot be negative.");
+	public static double validatePositive(double value) {
+		if(value <= 0.0) {
+			throw new IllegalArgumentException("The value cannot be negative.");
 		}
-		return numberOfRooms;
-	}
-	
-	public static double validatebuiltArea(double builtArea) {
-		if(builtArea <= 0) {
-			throw new IllegalArgumentException("The square area of ​​the property cannot be negative.");
-		}
-		return builtArea;
+		return value;
 	}
 	
 	@Override
@@ -61,7 +85,11 @@ public class House {
 				"Residential address" + "\n" + 
 				getAddress().toString() + "\n" +
 				"Type house: " + getTypeHouse() + "\n" + 
-				String.format("Total built area: %.2f m²", getBuiltArea());
+				String.format("Total built area .................: %.2f m²%n", getBuiltArea()) + 
+				String.format("Total land area  .................: %.2f m²%n", getLandArea()) +
+				String.format("Price build area .................: %.2f%n", calculatePriceBuiltArea()) + 
+				String.format("Price land area  .................: %.2f%n", calculatePriceLandArea()) + 
+				String.format("Total price area .................: %.2f", totalPrice());
 				
 	}
 }

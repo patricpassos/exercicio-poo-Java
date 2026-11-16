@@ -13,16 +13,16 @@ public class ProgramHouse {
 		//STANDALONE_HOUSE, CONDOMINIUM_HOUSE, TWO_STORY_HOUSE;
 		
 		try {
+			
 			Address address = new Address("Rua Boa vista", "2834-C", -23.859, 58.648);
-			House house = new House(address, "CONDOMINIUM_HOUSE", 340.0);
+			
+			House house = new House(address, "CONDOMINIUM_HOUSE", 80.0, 120.0, 2500.0, 1500.0);
 			System.out.println(house);
-			System.out.println("Price ($): " + house.calculatePrice(800.0));
+
 			
 		} catch(IllegalArgumentException e) {
 			System.err.println(e.getMessage());
 		}
-		
-		
 		
 		//Escreva um programa em Java onde a classe "Casa" impeça a atribuição de valores negativos para cômodos ou área.
 		//Escreva um programa em Java onde a classe "Casa" inclua um método para estimar os custos de reforma.
