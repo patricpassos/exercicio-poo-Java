@@ -14,13 +14,11 @@ public enum RenovationLevel {
         this.maxPricePerSqm = maxPricePerSqm;
     }
 
-    // O próprio Enum valida a regra de negócio (Fail-Fast)!
-    public void validatePrice(double pricePerSqm) {
+    public double validatePrice(double pricePerSqm) {
         if (pricePerSqm < minPricePerSqm || pricePerSqm > maxPricePerSqm) {
-            throw new IllegalArgumentException(
-                String.format("Price R$ %.2f/m² is out of range for %s renovation.", pricePerSqm, this.name())
-            );
+            throw new IllegalArgumentException(String.format("Price R$ %.2f/m² is out of range for %s renovation.", pricePerSqm, this.name()));
         }
+        return pricePerSqm;
     }
 
     public static RenovationLevel fromString(String value) {
