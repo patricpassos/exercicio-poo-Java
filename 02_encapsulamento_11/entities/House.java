@@ -65,14 +65,14 @@ public class House {
     }
 
 	//fail-fast
-	public static String valueStr(String valueStr) {
+	private static String valueStr(String valueStr) {
 		if(valueStr == null || valueStr.isBlank()) {
 			throw new IllegalArgumentException("Address incorrect.");
 		}
 		return valueStr;
 	}
 	
-	public static double validatePositive(double value) {
+	private static double validatePositive(double value) {
 		if(value <= 0.0) {
 			throw new IllegalArgumentException("The value cannot be negative.");
 		}
