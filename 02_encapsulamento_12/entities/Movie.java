@@ -1,12 +1,22 @@
 package entities;
 
+import entities.enums.GenreFilm;
+
 public class Movie {
 
 	private String title;
 	private String director;
 	private int duration;
 	private int numberViews;
+	private GenreFilm genre;
 	
+	public Movie(String title, String director, int duration, String genre) {
+		this.title = validateValueStr(title);
+		this.director = validateValueStr(director);
+		this.duration = validateDuration(duration);
+		this.genre = GenreFilm.fromString(genre);
+	}
+
 	public String getTitle() {
 		return title;
 	}
@@ -31,17 +41,25 @@ public class Movie {
 		this.duration = validateDuration(duration);
 	}
 	
-	public void setNumberViews(int views) {
+	public void registerViews(int views) {
 		if(views < 0) {
-			throw new IllegalArgumentException("the display quantity cannot be negative");
+			throw new IllegalArgumentException("Views to register must be greater than zero.");
 		}
 		this.numberViews += views;
 	}
-	
+
+	public GenreFilm getGenre() {
+		return genre;
+	}
+
+	public void setGenre(String gender) {
+		this.genre = GenreFilm.fromString(gender);
+	}
+
 	//fail-fast
 	private static int validateDuration(int duration) {
 		if(duration <= 0) {
-			throw new IllegalArgumentException("the duration of the film cannot be negative.");
+			throw new IllegalArgumentException("Movie duration must be greater than zero.");
 		}
 		return duration;
 	}
@@ -56,10 +74,11 @@ public class Movie {
 	@Override
 	public String toString() {
 		return 
-				"Title: " + getTitle() + "\n" +
-				"Director: " + getDirector() + "\n" +
+				"Title: " + title + "\n" +
+				"Director: " + director + "\n" +
+				"Genre: " + getGenre().name().toLowerCase().replace("_", " ") + "\n" +
 				String.format("Duration minutes: %d%n", getDuration()) + 
-				String.format("Number of views: %d", numberViews);
+				String.format("Number of views: %d%n", numberViews);
 	}
 	
 }
