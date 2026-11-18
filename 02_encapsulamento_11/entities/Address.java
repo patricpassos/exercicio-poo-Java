@@ -39,7 +39,7 @@ public class Address {
 	}
 
 	//fail-fast
-	public static String validateAddress(String valueAddress) {
+	private static String validateAddress(String valueAddress) {
 		if(valueAddress == null || valueAddress.isBlank()) {
 			throw new IllegalArgumentException("Address incorrect.");
 		}

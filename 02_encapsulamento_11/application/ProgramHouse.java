@@ -17,7 +17,10 @@ public class ProgramHouse {
 		try {
 			Address address = new Address("Rua Boa vista", "2834-C", -23.859, 58.648);
 			House house = new House(address, "CONDOMINIUM_HOUSE", 80.0, 120.0, 2500.0, 1500.0);
+			house.addFeature("security");
+			house.addFeature("PARKING_SPACE");
 			System.out.println(house);
+			
 		} catch(IllegalArgumentException e) {
 			System.err.println(e.getMessage());
 		}
