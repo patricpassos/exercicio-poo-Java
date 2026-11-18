@@ -9,12 +9,14 @@ public class Movie {
 	private int duration;
 	private int numberViews;
 	private GenreFilm genre;
+	private double ticketPrice;
 	
-	public Movie(String title, String director, int duration, String genre) {
+	public Movie(String title, String director, int duration, String genre, double ticketPrice) {
 		this.title = validateValueStr(title);
 		this.director = validateValueStr(director);
 		this.duration = validateDuration(duration);
 		this.genre = GenreFilm.fromString(genre);
+		this.ticketPrice = validatePriceTicket(ticketPrice);
 	}
 
 	public String getTitle() {
@@ -55,6 +57,10 @@ public class Movie {
 	public void setGenre(String gender) {
 		this.genre = GenreFilm.fromString(gender);
 	}
+	
+	public double calculateExpectedRevenue() {
+		return numberViews * ticketPrice;
+	}
 
 	//fail-fast
 	private static int validateDuration(int duration) {
@@ -71,6 +77,13 @@ public class Movie {
 		return value.trim();
 	}
 	
+	private static double validatePriceTicket(double price) {
+		if(price <= 0.0) {
+			throw new IllegalArgumentException("Ticket price must be greater than zero.");
+		}
+		return price;
+	}
+	
 	@Override
 	public String toString() {
 		return 
@@ -78,7 +91,8 @@ public class Movie {
 				"Director: " + director + "\n" +
 				"Genre: " + getGenre().name().toLowerCase().replace("_", " ") + "\n" +
 				String.format("Duration minutes: %d%n", getDuration()) + 
-				String.format("Number of views: %d%n", numberViews);
+				String.format("Number of views: %d%n", numberViews) + 
+				String.format("Expected box office revenue: $ %.2f%n", calculateExpectedRevenue());
 	}
 	
 }
