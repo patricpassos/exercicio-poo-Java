@@ -91,5 +91,6 @@
 	<classpathentry kind="src" path="02_encapsulamento_composicao_enum_10"/>
 	<classpathentry kind="src" path="02_encapsulamento_composicao_list_enum_11"/>
 	<classpathentry kind="src" path="02_encapsulamento_12"/>
+	<classpathentry kind="src" path="02_exercicio_encapsulamento_13"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
