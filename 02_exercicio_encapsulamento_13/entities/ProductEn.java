@@ -1,33 +1,29 @@
 package entities;
 
+import entities.enums.ProductCategory;
+
 public class ProductEn {
 
 	private String name;
 	private String code;
 	private double price;
 	private int quantity;
+	private ProductCategory category;
 	
-	public ProductEn(String name, String code, double price, int quantity) {
+	public ProductEn(String name, String code, double price, int quantity, ProductCategory category) {
 		this.name = valitadeStr(name);
 		this.code = valitadeStr(code);
 		this.price = validatePrice(price);
 		this.quantity = validateQuantity(quantity);
-	}
-
-	public String getName() {
-		return name;
+		this.category = category;
 	}
 
 	public void setName(String name) {
 		this.name = valitadeStr(name);
 	}
 
-	public String getCode() {
-		return code;
-	}
-
 	public void setCode(String code) {
-		this.code = valitadeStr(name);
+		this.code = valitadeStr(code);
 	}
 
 	public double getPrice() {
@@ -37,13 +33,13 @@ public class ProductEn {
 	public void setPrice(double price) {
 		this.price = validatePrice(price);
 	}
-	
-	public int getQuantity() {
-		return quantity;
-	}
 
 	public void setQuantity(int quantity) {
 		this.quantity = validateQuantity(quantity);
+	}
+
+	public void setCategory(ProductCategory category) {
+		this.category = category;
 	}
 
 	public void applyDiscount(double percentage) {
@@ -59,12 +55,12 @@ public class ProductEn {
 			totalPrice -= totalPrice * 0.15; 
 		} else if (this.quantity >= 5.0) {
 			totalPrice -= totalPrice * 0.1; 
-		} else if(this.quantity >= 3) {
+		} else if(this.quantity >= 3.0) {
 			totalPrice -= totalPrice * 0.05; 
 		}
 		return totalPrice;
 	}
-
+	
 	//fail-fast
 	private static String valitadeStr(String valueStr) {
 		if(valueStr == null || valueStr.isBlank()) {
@@ -91,7 +87,8 @@ public class ProductEn {
 	public String toString() {
 		return
 				"Name product: " + name + "\n" +
-				"Code Product: " + code + "\n" + 
+				"Code product: " + code + "\n" + 
+				"Category product: " + category.name().toLowerCase() + "\n" + 
 				String.format("Price product: %.2f%n", price) + 
 				String.format("Total to pay: %.2f%n", calculateVolumeDiscount());
 	}
