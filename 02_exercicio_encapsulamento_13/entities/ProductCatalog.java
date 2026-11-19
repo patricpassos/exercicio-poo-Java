@@ -12,7 +12,7 @@ public class ProductCatalog {
 		return Collections.unmodifiableList(items);
 	}
 	
-	public void addSales(ProductEn product) {
+	public void addSale(ProductEn product) {
 		if (product == null) {
 			throw new IllegalArgumentException("Product cannot be null.");
 		}

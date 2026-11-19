@@ -16,7 +16,7 @@ public class ProgramProductEn {
 
 		try {
 			ProductEn product01 = new ProductEn("Lep top ", "LT01233", 5500.00, 1, ProductCategory.COMPUTERS);
-			order.addSales(product01);
+			order.addSale(product01);
 			System.out.println(product01);
 		} catch (IllegalArgumentException e) {
 			System.err.println(e.getMessage());
@@ -25,7 +25,7 @@ public class ProgramProductEn {
 		try {
 			ProductEn product02 = new ProductEn("keyboard", "KB00889", 85.0, 2, ProductCategory.PERIPHERALS);
 			product02.applyDiscount(5);
-			order.addSales(product02);
+			order.addSale(product02);
 			System.out.println(product02);
 		} catch (IllegalArgumentException e) {
 			System.err.println(e.getMessage());
@@ -33,7 +33,7 @@ public class ProgramProductEn {
 		
 		try {
 			ProductEn product03 = new ProductEn("headset", "HDT1993", 120.0, 8, ProductCategory.PERIPHERALS);
-			order.addSales(product03);
+			order.addSale(product03);
 			System.out.println(product03);
 		} catch (IllegalArgumentException e) {
 			System.err.println(e.getMessage());

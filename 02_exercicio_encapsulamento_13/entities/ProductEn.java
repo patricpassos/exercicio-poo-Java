@@ -11,23 +11,15 @@ public class ProductEn {
 	private ProductCategory category;
 	
 	public ProductEn(String name, String code, double price, int quantity, ProductCategory category) {
-		this.name = valitadeStr(name);
-		this.code = valitadeStr(code);
+		this.name = validateStr(name);
+		this.code = validateStr(code);
 		this.price = validatePrice(price);
 		this.quantity = validateQuantity(quantity);
-		this.category = category;
+		this.category = validateCategory(category);
 	}
 
 	public void setName(String name) {
-		this.name = valitadeStr(name);
-	}
-
-	public void setCode(String code) {
-		this.code = valitadeStr(code);
-	}
-
-	public double getPrice() {
-		return price;
+		this.name = validateStr(name);
 	}
 
 	public void setPrice(double price) {
@@ -36,10 +28,6 @@ public class ProductEn {
 
 	public void setQuantity(int quantity) {
 		this.quantity = validateQuantity(quantity);
-	}
-
-	public void setCategory(ProductCategory category) {
-		this.category = category;
 	}
 
 	public void applyDiscount(double percentage) {
@@ -51,18 +39,18 @@ public class ProductEn {
 	
 	public double calculateVolumeDiscount() {
 		double totalPrice = this.price * this.quantity;
-		if(this.quantity >= 10.0) {
+		if(this.quantity >= 10) {
 			totalPrice -= totalPrice * 0.15; 
-		} else if (this.quantity >= 5.0) {
+		} else if (this.quantity >= 5) {
 			totalPrice -= totalPrice * 0.1; 
-		} else if(this.quantity >= 3.0) {
+		} else if(this.quantity >= 3) {
 			totalPrice -= totalPrice * 0.05; 
 		}
 		return totalPrice;
 	}
 	
 	//fail-fast
-	private static String valitadeStr(String valueStr) {
+	private static String validateStr(String valueStr) {
 		if(valueStr == null || valueStr.isBlank()) {
 			throw new IllegalArgumentException("Value Incorrect.");
 		}
@@ -71,7 +59,7 @@ public class ProductEn {
 	
 	private static double validatePrice(double price) {
 		if(price <= 0.0) {
-			throw new IllegalArgumentException("The price cannot be negative.");
+			throw new IllegalArgumentException("The price must be greater than zero.");
 		}
 		return price;
 	}
@@ -81,6 +69,13 @@ public class ProductEn {
 			throw new IllegalArgumentException("The quantity product cannot be negative or zero.");
 		}
 		return quantity;
+	}
+	
+	private static ProductCategory validateCategory(ProductCategory category) {
+	    if (category == null) {
+	        throw new IllegalArgumentException("Product category cannot be null.");
+	    }
+	    return category;
 	}
 	
 	@Override
